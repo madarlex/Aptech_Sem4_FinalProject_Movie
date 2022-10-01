@@ -100,6 +100,7 @@
 						    </c:if>  
 							
 						</li>
+
 						<li style="background-color: #dd003f;
     color: #ffffff;
     padding: 11px
@@ -108,6 +109,20 @@ px
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;"><a href="${pageContext.request.contextPath }/account/register">Register</a></li>
+    						<li style="background-color: #dd003f;
+    color: #ffffff;
+    padding: 11px
+px
+ 25px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;">
+							<c:if test="${not empty pageContext.request.userPrincipal}">
+								<c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+									<a href="${pageContext.request.contextPath }/account/login">CHECK</a>
+							    </c:if>
+							 </c:if> 
+						</li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
