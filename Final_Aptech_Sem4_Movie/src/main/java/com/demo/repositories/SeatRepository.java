@@ -8,15 +8,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
+import com.demo.models.AvailableSeats;
 import com.demo.models.Seat;
 
 @Repository
 public interface SeatRepository extends CrudRepository<Seat, Integer>{
 
-
+	@Query(nativeQuery = true)
+	public Iterable<AvailableSeats> getAvailableSeats(int hall_id, int movie_show_time_id);
 
 }
-
-// database ---> repositories ---> service ---> controller
-// HQL, JPAQL

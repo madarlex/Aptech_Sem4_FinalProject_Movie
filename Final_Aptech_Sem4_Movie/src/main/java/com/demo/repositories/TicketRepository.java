@@ -8,15 +8,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
+import com.demo.models.AvailableSeats;
 import com.demo.models.Ticket;
 
 @Repository
-public interface TicketRepository extends CrudRepository<Ticket, Integer>{
-
+public interface TicketRepository extends CrudRepository<Ticket, Integer> {
 
 
 }
 
-// database ---> repositories ---> service ---> controller
-// HQL, JPAQL
