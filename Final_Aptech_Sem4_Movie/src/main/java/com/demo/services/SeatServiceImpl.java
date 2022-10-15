@@ -5,12 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.demo.models.AvailableSeats;
+import com.demo.repositories.SeatRepository;
+import com.demo.repositories.TicketRepository;
 
 
 
@@ -19,6 +18,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class SeatServiceImpl implements SeatService {
 	
+	@Autowired
+	private SeatRepository seatRepository;
+	
 
+	@Override
+	public Iterable<AvailableSeats> getAvailableSeats(int hall_id, int movie_show_time_id) {
+		// TODO Auto-generated method stub
+		return seatRepository.getAvailableSeats(hall_id, movie_show_time_id);
+	}
 
 }

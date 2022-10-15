@@ -1,0 +1,154 @@
+#trapezoid {
+	border-bottom: 50px solid rgb(35, 58, 80, 0.7);
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	text-align: center;
+}
+
+.screen {
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	padding: 5px;
+	font-weight: lighter;
+}
+
+.list-seats {
+	padding: 10px 40px;
+	-webkit-user-select: none;
+}
+
+.seat {
+	background-color: gray;
+	padding: 7px 14px;
+	display: inline-block;
+	border-radius: 5px;
+	font-weight: bold;
+	margin: 20px 5px 5px 0px;
+	width: 55px;
+	text-align: center;
+}
+
+.seat-info {
+	background-color: gray;
+	padding: 7px 17px;
+	display: inline-block;
+	border-radius: 5px;
+	font-weight: bold;
+	margin: 1px 10px 5px 0px;
+}
+
+.seat-label {
+	font-weight: bold;
+}
+
+.info-seat {
+	text-align: center;
+}
+
+.gheDangDat {
+	background-color: rgba(7, 243, 58, 0.678) !important;
+}
+
+.gheVip {
+	background-color: rgba(235, 88, 15, 0.5);
+}
+
+.gheDaDuocDat {
+	background-color: rgba(243, 9, 9, 0.637);
+}
+
+.line {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	height: 1px;
+	background-color: white;
+}
+
+.parent-line {
+	padding: 0px 20px;
+}
+
+.process-button {
+	border-radius: 15px;
+	text-align: center;
+	width: 150px;
+	display: inline-block;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #000000;
+	background-color: #ffffff;
+	padding: 10px;
+	text-decoration: none;
+	line-height: 1;
+}
+
+.form-holder {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.form-holder .form-content {
+	position: relative;
+	text-align: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: 60px;
+}
+
+.form-content .form-items {
+	border: 3px solid #fff;
+	padding: 40px;
+	display: inline-block;
+	width: 100%;
+	min-width: 540px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-align: left;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.form-content h3 {
+	color: #fff;
+	text-align: center;
+	font-size: 28px;
+	font-weight: 600;
+	margin-bottom: 25px;
+}
+
+.form-content h3.form-title {
+	margin-bottom: 30px;
+}
+
+.form-content p {
+	color: #fff;
+	text-align: left;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 20px;
+	margin-bottom: 30px;
+}
+
+.tab {
+	color: white;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 100%;
+	font-size: 17px;
+	font-family: Raleway;
+	-webkit-appearance: none;
+}
