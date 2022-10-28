@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Sep 10, 2022, 9:42:19 PM by Hibernate Tools 4.3.6.Final
+// Generated Oct 21, 2022, 10:29:21 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -26,23 +26,29 @@ public class Movieshowtime implements java.io.Serializable {
 
 	private Integer id;
 	private Movie movie;
-	private Date showTime;
+	private Date showDate;
 	private boolean status;
+	private int hallId;
+	private Date showTime;
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
 
 	public Movieshowtime() {
 	}
 
-	public Movieshowtime(Movie movie, Date showTime, boolean status) {
+	public Movieshowtime(Movie movie, Date showDate, boolean status, int hallId, Date showTime) {
 		this.movie = movie;
-		this.showTime = showTime;
+		this.showDate = showDate;
 		this.status = status;
+		this.hallId = hallId;
+		this.showTime = showTime;
 	}
 
-	public Movieshowtime(Movie movie, Date showTime, boolean status, Set<Ticket> tickets) {
+	public Movieshowtime(Movie movie, Date showDate, boolean status, int hallId, Date showTime, Set<Ticket> tickets) {
 		this.movie = movie;
-		this.showTime = showTime;
+		this.showDate = showDate;
 		this.status = status;
+		this.hallId = hallId;
+		this.showTime = showTime;
 		this.tickets = tickets;
 	}
 
@@ -69,13 +75,13 @@ public class Movieshowtime implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "show_time", nullable = false, length = 10)
-	public Date getShowTime() {
-		return this.showTime;
+	@Column(name = "show_date", nullable = false, length = 10)
+	public Date getShowDate() {
+		return this.showDate;
 	}
 
-	public void setShowTime(Date showTime) {
-		this.showTime = showTime;
+	public void setShowDate(Date showDate) {
+		this.showDate = showDate;
 	}
 
 	@Column(name = "status", nullable = false)
@@ -85,6 +91,25 @@ public class Movieshowtime implements java.io.Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	@Column(name = "hall_id", nullable = false)
+	public int getHallId() {
+		return this.hallId;
+	}
+
+	public void setHallId(int hallId) {
+		this.hallId = hallId;
+	}
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "show_time", nullable = false, length = 8)
+	public Date getShowTime() {
+		return this.showTime;
+	}
+
+	public void setShowTime(Date showTime) {
+		this.showTime = showTime;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "movieshowtime")
