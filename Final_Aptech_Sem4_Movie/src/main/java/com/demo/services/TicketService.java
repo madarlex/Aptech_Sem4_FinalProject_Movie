@@ -15,10 +15,8 @@ import com.demo.models.Ticket;
 
 public interface TicketService {
 
-<<<<<<< HEAD
 
-=======
+
 	public List<Ticket> findAllByUserId(int user_id);
-	
->>>>>>> e14c949 (user template)
+
 }
