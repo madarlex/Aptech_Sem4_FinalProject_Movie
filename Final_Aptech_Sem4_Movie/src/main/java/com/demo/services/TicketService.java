@@ -19,6 +19,6 @@ public interface TicketService {
 
 =======
 	public List<Ticket> findAllByUserId(int user_id);
-	
+
 >>>>>>> e14c949 (user template)
 }
