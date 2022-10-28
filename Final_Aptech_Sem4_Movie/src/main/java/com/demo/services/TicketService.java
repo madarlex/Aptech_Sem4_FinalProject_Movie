@@ -19,4 +19,5 @@ public interface TicketService {
 
 	public List<Ticket> findAllByUserId(int user_id);
 
+
 }
