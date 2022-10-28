@@ -8,13 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import com.demo.models.Movie;
+import com.demo.models.Movieshowtime;
+import com.demo.repositories.MovieRepository;
+import com.demo.repositories.MovieshowtimeRepository;
+
 
 
 
 
 @Service
 public class MovieshowtimeServiceImpl implements MovieshowtimeService {
-	
 
+	@Autowired
+	private MovieshowtimeRepository movieshowtimeRepository;
+	
+	@Override
+	public Iterable<Movieshowtime> findAll() {
+		return movieshowtimeRepository.findAll();
+	}
+
+	@Override
+	public List<Movie> findShowtimemovieByMovieId(int movieId) {
+		return movieshowtimeRepository.findShowtimemovieByMovieId(movieId);
+	}
 
 }

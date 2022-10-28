@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.models.Ticket;
+import com.demo.repositories.MovieRepository;
 import com.demo.models.AvailableSeats;
 import com.demo.repositories.TicketRepository;
 
@@ -21,6 +23,14 @@ public class TicketServiceImpl implements TicketService {
 	private TicketRepository ticketRepository;
 	
 
+	
+	@Autowired
+	private TicketRepository ticketRepository;
+
+	@Override
+	public List<Ticket> findAllByUserId(int user_id) {
+		return ticketRepository.findAllByUserId(user_id);
+	}
 	
 
 
