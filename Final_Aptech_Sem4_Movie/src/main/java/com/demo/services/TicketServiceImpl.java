@@ -18,15 +18,10 @@ import com.demo.repositories.TicketRepository;
 
 @Service
 public class TicketServiceImpl implements TicketService {
-
-	@Autowired
-	private TicketRepository ticketRepository;
-	
-
 	
 	@Autowired
 	private TicketRepository ticketRepository;
-
+	
 	@Override
 	public List<Ticket> findAllByUserId(int user_id) {
 		return ticketRepository.findAllByUserId(user_id);
