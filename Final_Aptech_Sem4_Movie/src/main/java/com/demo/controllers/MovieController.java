@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.demo.models.Movie;
 import com.demo.services.AccountService;
 import com.demo.services.MovieService;
 import com.demo.services.MovieshowtimeService;
@@ -65,8 +66,9 @@ public class MovieController {
 	
 	@RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
 	public String detail(ModelMap modelMap,@PathVariable("id") int id) {
-		modelMap.put("movie", movieService.findById(id));
-		modelMap.put("showtimemovies",  movieService.findById(id).getMovieshowtimes());
+		Movie showMovie = movieService.findById(id);
+		modelMap.put("movie", showMovie);
+		modelMap.put("showtimemovies",  showMovie.getMovieshowtimes());
 		return "movie/detail";
 	}
 	

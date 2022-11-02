@@ -107,7 +107,7 @@
 											<div class="timeline">
 												<ul style="display: block;">
 													<c:forEach var="showtimemovie" items="${showtimemovies }">
-														<li class="li-movie-time"><a class="movie-time">${showtimemovie.showDate } ${showtimemovie.showTime }</a></li>
+														<li class="li-movie-time"><a class="movie-time" href="${pageContext.request.contextPath }/ticket/index?movieShowTimeId=${showtimemovie.id}">${showtimemovie.showDate } ${showtimemovie.showTime }</a></li>
 													</c:forEach>
 												</ul>
 											</div>

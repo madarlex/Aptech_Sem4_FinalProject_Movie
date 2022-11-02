@@ -3,32 +3,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Basic need -->
-<title>Open Pediatrics</title>
-<meta charset="UTF-8">
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 
-<!--Google Font-->
-<link rel="stylesheet"
+<mt:userTemplate title="welcome">
+	<jsp:attribute name="content">
+	<link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-<!-- Mobile specific meta -->
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone-no">
-
-<!-- CSS files -->
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/plugins.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/booking.css">
-
-
-</head>
-
-<body>
+	
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -65,14 +52,15 @@
 
 									<div class="tab" data-value="${seatNumber }">
 										<span>Total Booking Seats: </span>${seatNumber }</div>
-									<div  class="tab" data-value="${paymentAmount }">
+									<div class="tab" data-value="${paymentAmount }">
 										<span>Total Amount: </span>${paymentAmount } $
 									</div>
 								</div>
 								<div class="row" style="text-align: center;">
-									<input class="process-button" type="submit" value="Submit" />
 									<input class="process-button" type="button" value="Back"
-										id="buttonBack">
+										id="buttonBack"> <input class="process-button"
+										type="submit" value="Submit" />
+
 								</div>
 							</div>
 						</form>
@@ -91,6 +79,16 @@
 		src="${pageContext.request.contextPath }/resources/js/plugins2.js"></script>
 	<script
 		src="${pageContext.request.contextPath }/resources/js/custom.js"></script>
-</body>
-</html>
+	<script>
+		$(document).ready(function() {
+
+			$("#buttonBack").click(function() {
+
+				window.location = '${pageContext.request.contextPath}/home/';
+
+			});
+		});
+	</script>
+			</jsp:attribute>
+</mt:userTemplate>
 

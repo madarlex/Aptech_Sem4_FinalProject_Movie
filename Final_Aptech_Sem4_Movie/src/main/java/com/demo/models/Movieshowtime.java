@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Oct 21, 2022, 10:29:21 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -25,29 +25,29 @@ import javax.persistence.TemporalType;
 public class Movieshowtime implements java.io.Serializable {
 
 	private Integer id;
+	private Hall hall;
 	private Movie movie;
 	private Date showDate;
 	private boolean status;
-	private int hallId;
 	private Date showTime;
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
 
 	public Movieshowtime() {
 	}
 
-	public Movieshowtime(Movie movie, Date showDate, boolean status, int hallId, Date showTime) {
+	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime) {
+		this.hall = hall;
 		this.movie = movie;
 		this.showDate = showDate;
 		this.status = status;
-		this.hallId = hallId;
 		this.showTime = showTime;
 	}
 
-	public Movieshowtime(Movie movie, Date showDate, boolean status, int hallId, Date showTime, Set<Ticket> tickets) {
+	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime, Set<Ticket> tickets) {
+		this.hall = hall;
 		this.movie = movie;
 		this.showDate = showDate;
 		this.status = status;
-		this.hallId = hallId;
 		this.showTime = showTime;
 		this.tickets = tickets;
 	}
@@ -62,6 +62,16 @@ public class Movieshowtime implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "hall_id", nullable = false)
+	public Hall getHall() {
+		return this.hall;
+	}
+
+	public void setHall(Hall hall) {
+		this.hall = hall;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -91,15 +101,6 @@ public class Movieshowtime implements java.io.Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
-	}
-
-	@Column(name = "hall_id", nullable = false)
-	public int getHallId() {
-		return this.hallId;
-	}
-
-	public void setHallId(int hallId) {
-		this.hallId = hallId;
 	}
 
 	@Temporal(TemporalType.TIME)

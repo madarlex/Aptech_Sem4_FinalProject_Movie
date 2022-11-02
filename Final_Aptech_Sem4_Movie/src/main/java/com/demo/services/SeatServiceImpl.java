@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demo.models.AvailableSeats;
+import com.demo.models.Seat;
 import com.demo.repositories.SeatRepository;
 import com.demo.repositories.TicketRepository;
 
@@ -26,6 +27,13 @@ public class SeatServiceImpl implements SeatService {
 	public Iterable<AvailableSeats> getAvailableSeats(int hall_id, int movie_show_time_id) {
 		// TODO Auto-generated method stub
 		return seatRepository.getAvailableSeats(hall_id, movie_show_time_id);
+	}
+
+
+	@Override
+	public Seat findById(int id) {
+		// TODO Auto-generated method stub
+		return seatRepository.findById(id).get();
 	}
 
 }

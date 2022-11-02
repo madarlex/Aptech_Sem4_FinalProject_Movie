@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Oct 21, 2022, 10:29:21 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -36,6 +36,7 @@ public class Movie implements java.io.Serializable {
 	private int length;
 	private Date endDate;
 	private boolean status;
+	private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
 	private Set<Movieshowtime> movieshowtimes = new HashSet<Movieshowtime>(0);
 
 	public Movie() {
@@ -61,7 +62,7 @@ public class Movie implements java.io.Serializable {
 
 	public Movie(String name, String shortName, String trailer, String picture, String description, Date startDate,
 			int rate, boolean hotMovie, boolean nowShowing, boolean comingSoon, int length, Date endDate,
-			boolean status, Set<Movieshowtime> movieshowtimes) {
+			boolean status, Set<Feedback> feedbacks, Set<Movieshowtime> movieshowtimes) {
 		this.name = name;
 		this.shortName = shortName;
 		this.trailer = trailer;
@@ -75,6 +76,7 @@ public class Movie implements java.io.Serializable {
 		this.length = length;
 		this.endDate = endDate;
 		this.status = status;
+		this.feedbacks = feedbacks;
 		this.movieshowtimes = movieshowtimes;
 	}
 
@@ -207,6 +209,15 @@ public class Movie implements java.io.Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
+	public Set<Feedback> getFeedbacks() {
+		return this.feedbacks;
+	}
+
+	public void setFeedbacks(Set<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")

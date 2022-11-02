@@ -43,10 +43,9 @@
 	<div class="movie-items">
 		<div class="container">
 			<div class="row ipad-width">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<div class="title-hd">
 						<h2>in theater</h2>
-						<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
 					</div>
 					<div class="tabs">
 						<ul class="tab-links">
@@ -131,46 +130,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="sidebar">
-						<div class="ads">
-							<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ads1.png" alt="" width="336" height="296">
-						</div>
-						<div class="celebrities">
-							<h4 class="sb-title">Spotlight Celebrities</h4>
-							<div class="celeb-item">
-								<a href="#"><img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
-								<div class="celeb-author">
-									<h6><a href="#">Samuel N. Jack</a></h6>
-									<span>Actor</span>
-								</div>
-							</div>
-							<div class="celeb-item">
-								<a href="#"><img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
-								<div class="celeb-author">
-									<h6><a href="#">Benjamin Carroll</a></h6>
-									<span>Actor</span>
-								</div>
-							</div>
-							<div class="celeb-item">
-								<a href="#"><img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
-								<div class="celeb-author">
-									<h6><a href="#">Beverly Griffin</a></h6>
-									<span>Actor</span>
-								</div>
-							</div>
-							<div class="celeb-item">
-								<a href="#"><img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
-								<div class="celeb-author">
-									<h6><a href="#">Justin Weaver</a></h6>
-									<span>Actor</span>
-								</div>
-							</div>
-							<a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
+</div>
 		</div>
 	</div>
 
@@ -179,8 +139,7 @@
 			<div class="row ipad-width">
 				<div class="col-md-12">
 					<div class="title-hd">
-						<h2>in theater</h2>
-						<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+						<h2>trailers</h2>
 					</div>
 					<div class="videos">
 						<div class="slider-for-2 video-ft">
@@ -219,10 +178,7 @@
 	<div class="latestnew">
 		<div class="container">
 			<div class="row ipad-width">
-				<div class="col-md-8">
-					<div class="ads">
-						<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/ads2.png" alt="" width="728" height="106">
-					</div>
+				<div class="col-md-12">
 					<div class="title-hd">
 						<h2>Latest news</h2>
 					</div>
@@ -320,28 +276,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="sidebar">
-						<div class="sb-facebook sb-it">
-							<h4 class="sb-title">Find us on Facebook</h4>
-							<iframe src="#"
-								data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=300&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
-								width="300" height="315" style="border:none;overflow:hidden"></iframe>
-						</div>
-						<div class="sb-twitter sb-it">
-							<h4 class="sb-title">Tweet to us</h4>
-							<div class="slick-tw">
-								<div class="tweet item" id="">
-									<!-- Put your twiter id here -->
-								</div>
-								<div class="tweet item" id="">
-									<!-- Put your 2nd twiter account id here -->
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 	<!--end of latest new v1 section-->

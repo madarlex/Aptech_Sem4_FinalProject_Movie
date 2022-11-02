@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Oct 21, 2022, 10:29:21 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +29,7 @@ public class Account implements java.io.Serializable {
 	private String phone;
 	private String fullName;
 	private boolean status;
+	private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
 
 	public Account() {
@@ -46,7 +47,7 @@ public class Account implements java.io.Serializable {
 	}
 
 	public Account(Usertype usertype, String username, String password, String email, String phone, String fullName,
-			boolean status, Set<Ticket> tickets) {
+			boolean status, Set<Feedback> feedbacks, Set<Ticket> tickets) {
 		this.usertype = usertype;
 		this.username = username;
 		this.password = password;
@@ -54,6 +55,7 @@ public class Account implements java.io.Serializable {
 		this.phone = phone;
 		this.fullName = fullName;
 		this.status = status;
+		this.feedbacks = feedbacks;
 		this.tickets = tickets;
 	}
 
@@ -131,6 +133,15 @@ public class Account implements java.io.Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+	public Set<Feedback> getFeedbacks() {
+		return this.feedbacks;
+	}
+
+	public void setFeedbacks(Set<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
