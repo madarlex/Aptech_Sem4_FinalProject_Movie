@@ -35,10 +35,10 @@
 			<div class="row">
 				<div class="middle-content">
 					<a href="index-2.html"><img class="md-logo"
-						src="images/logo1.png" alt=""></a> <img
-						src="images/uploads/err-img.png" alt="">
+								src="images/logo1.png" alt=""></a> <img
+								src="images/uploads/err-img.png" alt="">
 					<h1>Success</h1>
-					<a href="index-2.html" class="redbtn">go home</a>
+					<a href="${pageContext.request.contextPath}/home/" class="redbtn">go home</a>
 				</div>
 			</div>
 		</div>
@@ -46,12 +46,13 @@
 
 
 	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.js"></script>
+				src="${pageContext.request.contextPath }/resources/js/jquery.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/resources/js/plugins.js"></script>
+				src="${pageContext.request.contextPath }/resources/js/plugins.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/resources/js/plugins2.js"></script>
+				src="${pageContext.request.contextPath }/resources/js/plugins2.js"></script>
 	<script
-		src="${pageContext.request.contextPath }/resources/js/custom.js"></script>
+				src="${pageContext.request.contextPath }/resources/js/custom.js"></script>
+
 </body>
 </html>

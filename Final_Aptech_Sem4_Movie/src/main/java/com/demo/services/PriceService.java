@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.demo.models.Price;
+
 
 
 
 public interface PriceService {
 
-
+	public Price findByDescription(Date showDate); 
 	
 }

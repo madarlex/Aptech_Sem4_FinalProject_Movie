@@ -1,4 +1,5 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ attribute name="title" required="true" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="content" fragment="true" %>
 <!DOCTYPE html>
@@ -65,7 +66,7 @@
 							<span></span> <span></span> <span></span>
 						</div>
 					</div>
-					<a href="index-2.html"><img class="logo" src="${pageContext.request.contextPath }/resources/user/images/logo1.png"
+					<a href="${pageContext.request.contextPath }/home/"><img class="logo" src="${pageContext.request.contextPath }/resources/user/images/cinema_logo.png"
 						alt="" width="119" height="58"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,9 +87,19 @@
 							<ul class="dropdown-menu level1">
 								<li><a href="${pageContext.request.contextPath }/account/history">History</a></li>
 								<li><a href="${pageContext.request.contextPath }/account/edit">Edit</a></li>
-								<li><a href="${pageContext.request.contextPath }/account/logout">Logout</a></li>
+								
 							</ul></li>
-						<li><a href="${pageContext.request.contextPath }/account/login">LOG In</a></li>
+						<li>
+
+						    <c:if test="${pageContext.request.userPrincipal.name == null}">
+								<a href="${pageContext.request.contextPath }/account/login">LOG IN</a>
+						    </c:if>    
+
+						    <c:if test="${pageContext.request.userPrincipal.name != null}">
+								<a href="${pageContext.request.contextPath }/account/logout">LOG OUT</a>
+						    </c:if>  
+							
+						</li>
 						<li style="background-color: #dd003f;
     color: #ffffff;
     padding: 11px
@@ -122,8 +133,8 @@ px
 		<div class="container">
 			<div class="flex-parent-ft">
 				<div class="flex-child-ft item1">
-					<a href="index-2.html"><img class="logo" src="${pageContext.request.contextPath }/resources/user/images/logo1.png"
-						alt=""></a>
+					<a href="${pageContext.request.contextPath }/home/"><img class="logo" src="${pageContext.request.contextPath }/resources/user/images/cinema_logo.png"
+						alt="" width="180" height="120"></a>
 					<p>
 						5th Avenue st, manhattan<br> New York, NY 10001
 					</p>
@@ -135,11 +146,7 @@ px
 					<h4>Resources</h4>
 					<ul>
 						<li><a href="#">About</a></li>
-						<li><a href="#">Blockbuster</a></li>
 						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Forums</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Help Center</a></li>
 					</ul>
 				</div>
 				<div class="flex-child-ft item3">

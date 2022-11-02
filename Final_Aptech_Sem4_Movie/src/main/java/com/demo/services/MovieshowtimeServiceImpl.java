@@ -33,4 +33,10 @@ public class MovieshowtimeServiceImpl implements MovieshowtimeService {
 		return movieshowtimeRepository.findShowtimemovieByMovieId(movieId);
 	}
 
+	@Override
+	public Movieshowtime findById(int id) {
+		// TODO Auto-generated method stub
+		return movieshowtimeRepository.findById(id).get();
+	}
+
 }

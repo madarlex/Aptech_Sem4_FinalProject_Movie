@@ -13,7 +13,7 @@ import javax.persistence.SqlResultSetMapping;
 
 @Entity
 @NamedNativeQuery(name = "Seat.getAvailableSeats", query = "select a.id, a.position, case when b.status is null then 0 else 1 end as status \r\n"
-		+ "from seat a left join ticket b on a.id = b.seat_id and b.hall_id = :hall_id and b.movie_show_time_id = :movie_show_time_id", resultSetMapping = "AvailableSeatsQuery")
+		+ "from seat a left join ticket b on a.id = b.seat_id and b.hall_id = :hall_id and b.movie_show_time_id = :movie_show_time_id order by a.id", resultSetMapping = "AvailableSeatsQuery")
 @SqlResultSetMapping(name = "AvailableSeatsQuery", classes = {
 		@ConstructorResult(targetClass = AvailableSeats.class, columns = { @ColumnResult(name = "id"),
 				@ColumnResult(name = "position"), @ColumnResult(name = "status") }) })

@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Oct 21, 2022, 10:29:21 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +24,7 @@ public class Hall implements java.io.Serializable {
 	private int seatNumbers;
 	private boolean status;
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
+	private Set<Movieshowtime> movieshowtimes = new HashSet<Movieshowtime>(0);
 
 	public Hall() {
 	}
@@ -34,11 +35,12 @@ public class Hall implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Hall(String name, int seatNumbers, boolean status, Set<Ticket> tickets) {
+	public Hall(String name, int seatNumbers, boolean status, Set<Ticket> tickets, Set<Movieshowtime> movieshowtimes) {
 		this.name = name;
 		this.seatNumbers = seatNumbers;
 		this.status = status;
 		this.tickets = tickets;
+		this.movieshowtimes = movieshowtimes;
 	}
 
 	@Id
@@ -87,6 +89,15 @@ public class Hall implements java.io.Serializable {
 
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hall")
+	public Set<Movieshowtime> getMovieshowtimes() {
+		return this.movieshowtimes;
+	}
+
+	public void setMovieshowtimes(Set<Movieshowtime> movieshowtimes) {
+		this.movieshowtimes = movieshowtimes;
 	}
 
 }
