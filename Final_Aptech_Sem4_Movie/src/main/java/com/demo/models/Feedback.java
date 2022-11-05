@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 5, 2022, 3:41:12 PM by Hibernate Tools 4.3.6.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -26,16 +26,18 @@ public class Feedback implements java.io.Serializable {
 	private Movie movie;
 	private String content;
 	private Date commentDate;
+	private int rating;
 	private boolean status;
 
 	public Feedback() {
 	}
 
-	public Feedback(Account account, Movie movie, String content, Date commentDate, boolean status) {
+	public Feedback(Account account, Movie movie, String content, Date commentDate, int rating, boolean status) {
 		this.account = account;
 		this.movie = movie;
 		this.content = content;
 		this.commentDate = commentDate;
+		this.rating = rating;
 		this.status = status;
 	}
 
@@ -88,6 +90,15 @@ public class Feedback implements java.io.Serializable {
 
 	public void setCommentDate(Date commentDate) {
 		this.commentDate = commentDate;
+	}
+
+	@Column(name = "rating", nullable = false)
+	public int getRating() {
+		return this.rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 	@Column(name = "status", nullable = false)

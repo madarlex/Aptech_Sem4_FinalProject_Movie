@@ -33,12 +33,17 @@ import com.demo.services.UserTypeService;
 
 @Controller
 @RequestMapping("error")
-public class ErrorController {
+public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController{
 	
 	@RequestMapping(value = "404", method = RequestMethod.GET)
 	public String login(ModelMap modelMap,@RequestParam(value = "error", required = false) String error) {
 		return "404/404";
 	}
-
+	
+    @RequestMapping("/error")
+    public String handleError() {
+        //do something like logging
+        return "404/404";
+    }
 	
 }
