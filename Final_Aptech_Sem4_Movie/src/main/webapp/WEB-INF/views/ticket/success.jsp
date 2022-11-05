@@ -3,20 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Basic need -->
-<title>Open Pediatrics</title>
-<meta charset="UTF-8">
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 
+<mt:userTemplate title="welcome">
+	<jsp:attribute name="content">	
 <!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-<!-- Mobile specific meta -->
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone-no">
-
 <!-- CSS files -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/plugins.css">
@@ -24,12 +17,6 @@
 	href="${pageContext.request.contextPath }/resources/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/booking.css">
-
-
-</head>
-
-<body>
-
 	<div class="page-single-2">
 		<div class="container">
 			<div class="row">
@@ -54,5 +41,5 @@
 	<script
 				src="${pageContext.request.contextPath }/resources/js/custom.js"></script>
 
-</body>
-</html>
+		</jsp:attribute>
+</mt:userTemplate>

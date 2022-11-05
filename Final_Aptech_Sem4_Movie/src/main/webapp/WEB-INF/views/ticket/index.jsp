@@ -4,34 +4,20 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Basic need -->
-<title>Open Pediatrics</title>
-<meta charset="UTF-8">
 
-<!--Google Font-->
-<link rel="stylesheet"
-	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-<!-- Mobile specific meta -->
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone-no">
 
-<!-- CSS files -->
+<mt:userTemplate title="welcome">
+	<jsp:attribute name="content">	
+	<!-- CSS files -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/plugins.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/booking.css">
-	
-	
-</head>
-
-<body>
-<mt:userTemplate title="welcome">
-	<jsp:attribute name="content">	
+	<!--Google Font-->
+<link rel="stylesheet"
+	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -245,5 +231,3 @@
 	</script>
 		</jsp:attribute>
 </mt:userTemplate>
-</body>
-</html>
