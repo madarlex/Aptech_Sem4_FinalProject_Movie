@@ -1,6 +1,9 @@
 package com.demo.services;
 
+import com.demo.models.Email;
+
 public interface MailService {
 
-		public void send(String from, String to, String subject, Object content) throws Exception;
+
+		void send(Email mail);
 }

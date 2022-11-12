@@ -5,7 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.demo.models.Account;
 import com.demo.models.AvailableSeats;
 import com.demo.models.ConfirmedPayment;
+import com.demo.models.Email;
 import com.demo.models.Hall;
 import com.demo.models.Movie;
 import com.demo.models.Movieshowtime;
@@ -195,9 +198,14 @@ public class TicketController {
 		PayPalConfig payPalConfig = payPalService.getPayPalConfig();
 		PayPalResult result = PayPalSucess.getPayPal(request, payPalConfig);
 
-		String content = "Customer: " + currentAccount.getFullName() + "\n Booking Seats: " + seatPositionsFlatten + "\n Payment: " + result.getPayment_gross();
+		Map<String,Object> model = new HashMap<>();
+		model.put("full_name", currentAccount.getFullName());
+		Email email = new Email();
+		email.setTo(currentAccount.getEmail());
+		email.setFrom(environment.getProperty("spring.mail.username"));
+		email.setModel(model);
 		try {
-			mailService.send(environment.getProperty("spring.mail.username"), currentAccount.getEmail(), "Booking Success Information", content);
+			mailService.send(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

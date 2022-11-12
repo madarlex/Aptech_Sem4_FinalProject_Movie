@@ -3,6 +3,8 @@ package com.demo.controllers;
 import java.net.http.HttpRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.demo.models.Account;
+import com.demo.models.Email;
 import com.demo.models.ResetPassword;
 import com.demo.models.Usertype;
 import com.demo.services.AccountService;
@@ -78,9 +81,14 @@ public class AccountController {
 		Usertype usertype = userTypeService.find(2);
 		account.setUsertype(usertype);
 		accountService.save(account);
-		String content = "Username: " + account.getUsername() + " has been created.";
+		Map<String,Object> model = new HashMap<>();
+		model.put("full_name", account.getFullName());
+		Email email = new Email();
+		email.setTo(account.getEmail());
+		email.setFrom(environment.getProperty("spring.mail.username"));
+		email.setModel(model);
 		try {
-			mailService.send(environment.getProperty("spring.mail.username"), account.getEmail(), "Create Successfully", content);
+			mailService.send(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,9 +110,17 @@ public class AccountController {
 			Usertype usertype = userTypeService.find(2);
 			account.setUsertype(usertype);
 			accountService.save(account);
-			String content = "Username: " + account.getUsername() + " has been edited.";
+			Map<String,Object> model = new HashMap<>();
+
+			Email email = new Email();
+			email.setTo(account.getEmail());
+			email.setFrom(environment.getProperty("spring.mail.username"));
+			email.setModel(model);
+			email.setSubject("Edit Account");
+			model.put("header", "Edit Account Info");
+			model.put("content", "Edit Successfully");
 			try {
-				mailService.send(environment.getProperty("spring.mail.username"), account.getEmail(), "Edit Successfully", content);
+				mailService.send(email);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -142,9 +158,14 @@ public class AccountController {
 					Usertype usertype = userTypeService.find(2);
 					account.setUsertype(usertype);
 					accountService.save(account);
-					String content = "Password of " + account.getUsername() + " has been reseted";
+					Map<String,Object> model = new HashMap<>();
+					model.put("full_name", account.getFullName());
+					Email email = new Email();
+					email.setTo(account.getEmail());
+					email.setFrom(environment.getProperty("spring.mail.username"));
+					email.setModel(model);
 					try {
-						mailService.send(environment.getProperty("spring.mail.username"), account.getEmail(), "Reset Password Successfully", content);
+						mailService.send(email);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
