@@ -87,6 +87,9 @@ public class AccountController {
 		email.setTo(account.getEmail());
 		email.setFrom(environment.getProperty("spring.mail.username"));
 		email.setModel(model);
+		email.setSubject("Register Account");
+		model.put("header", "Successful Account Registration");
+		model.put("content", "This is an email to notify you that you have successfully registered an account at CodeDao, thank you for trusting and using the service.");
 		try {
 			mailService.send(email);
 		} catch (Exception e) {
@@ -117,8 +120,8 @@ public class AccountController {
 			email.setFrom(environment.getProperty("spring.mail.username"));
 			email.setModel(model);
 			email.setSubject("Edit Account");
-			model.put("header", "Edit Account Info");
-			model.put("content", "Edit Successfully");
+			model.put("header", "Edit Account Notification");
+			model.put("content", "This is the email notifying you that you have made an edit to your account, if not, please review the security warnings");
 			try {
 				mailService.send(email);
 			} catch (Exception e) {
@@ -164,6 +167,9 @@ public class AccountController {
 					email.setTo(account.getEmail());
 					email.setFrom(environment.getProperty("spring.mail.username"));
 					email.setModel(model);
+					email.setSubject("Reset Password Account");
+					model.put("header", "Reset Password Account Notification");
+					model.put("content", "This is the email notifying you that you have successfully changed your password, if not, please review the security warnings");
 					try {
 						mailService.send(email);
 					} catch (Exception e) {

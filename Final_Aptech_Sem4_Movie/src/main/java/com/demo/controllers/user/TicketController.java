@@ -204,6 +204,9 @@ public class TicketController {
 		email.setTo(currentAccount.getEmail());
 		email.setFrom(environment.getProperty("spring.mail.username"));
 		email.setModel(model);
+		email.setSubject("Book Ticket");
+		model.put("header", "Successful Book Ticket");
+		model.put("content", "This is an email to notify you that your ticket has been successfully purchased, if you have any questions, please contact customer support.");
 		try {
 			mailService.send(email);
 		} catch (Exception e) {

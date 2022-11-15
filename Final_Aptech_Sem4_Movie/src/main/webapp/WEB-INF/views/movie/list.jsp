@@ -52,7 +52,7 @@
 	            				<a  href="${pageContext.request.contextPath }/movie/detail/${movie.id}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 	            			</div>
 							<div class="mv-item-infor">
-								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.shortName }</a></h6>
+								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
 								<p class="rate"><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
 							</div>
 						</div>			

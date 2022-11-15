@@ -31,7 +31,7 @@
 								<a href="${pageContext.request.contextPath }/movie/detail/${movie.id}"><img  src="${pageContext.request.contextPath }${movie.picture }" alt="" width="285" height="437"></a>
 							</div>
 							<div class="title-in">
-								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.shortName}</a></h6>
+								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name}</a></h6>
 								<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 															class="ion-android-arrow-dropright"></i> </a>
 												</div>
 												<div class="title-in">
-													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.shortName }</a></h6>
+													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
 													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
 												</div>
 											</div>
@@ -93,7 +93,7 @@
 															class="ion-android-arrow-dropright"></i> </a>
 												</div>
 												<div class="title-in">
-													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.shortName }</a></h6>
+													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
 													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
 												</div>
 											</div>
@@ -117,7 +117,7 @@
 															class="ion-android-arrow-dropright"></i> </a>
 												</div>
 												<div class="title-in">
-													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.shortName }</a></h6>
+													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
 													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
 												</div>
 											</div>

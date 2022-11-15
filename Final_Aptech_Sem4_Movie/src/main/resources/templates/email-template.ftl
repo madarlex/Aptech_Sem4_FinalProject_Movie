@@ -1,863 +1,238 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<head>
-    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
-    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
-    <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
-    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
-
-
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
-
-    <!-- CSS Reset : BEGIN -->
-<style>
-
-html,
-body {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    height: 100% !important;
-    width: 100% !important;
-    background: #f1f1f1;
-}
-
-/* What it does: Stops email clients resizing small text. */
-* {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-
-/* What it does: Centers email on Android 4.4 */
-div[style*="margin: 16px 0"] {
-    margin: 0 !important;
-}
-
-/* What it does: Stops Outlook from adding extra spacing to tables. */
-table,
-td {
-    mso-table-lspace: 0pt !important;
-    mso-table-rspace: 0pt !important;
-}
-
-/* What it does: Fixes webkit padding issue. */
-table {
-    border-spacing: 0 !important;
-    border-collapse: collapse !important;
-    table-layout: fixed !important;
-    margin: 0 auto !important;
-}
-
-/* What it does: Uses a better rendering method when resizing images in IE. */
-img {
-    -ms-interpolation-mode:bicubic;
-}
-
-/* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
-a {
-    text-decoration: none;
-}
-
-/* What it does: A work-around for email clients meddling in triggered links. */
-*[x-apple-data-detectors],  /* iOS */
-.unstyle-auto-detected-links *,
-.aBn {
-    border-bottom: 0 !important;
-    cursor: default !important;
-    color: inherit !important;
-    text-decoration: none !important;
-    font-size: inherit !important;
-    font-family: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-}
-
-/* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
-.a6S {
-    display: none !important;
-    opacity: 0.01 !important;
-}
-
-/* What it does: Prevents Gmail from changing the text color in conversation threads. */
-.im {
-    color: inherit !important;
-}
-
-/* If the above doesn't work, add a .g-img class to any image in question. */
-img.g-img + div {
-    display: none !important;
-}
-
-/* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
-/* Create one of these media queries for each additional viewport size you'd like to fix */
-
-/* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
-@media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-    u ~ div .email-container {
-        min-width: 320px !important;
-    }
-}
-/* iPhone 6, 6S, 7, 8, and X */
-@media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
-    u ~ div .email-container {
-        min-width: 375px !important;
-    }
-}
-/* iPhone 6+, 7+, and 8+ */
-@media only screen and (min-device-width: 414px) {
-    u ~ div .email-container {
-        min-width: 414px !important;
-    }
-}
-
-</style>
-
-    <!-- CSS Reset : END -->
-
-    <!-- Progressive Enhancements : BEGIN -->
-<style>
-
-.primary{
-	background: #f3a333;
-}
-
-.bg_white{
-	background: #ffffff;
-}
-.bg_light{
-	background: #fafafa;
-}
-.bg_black{
-	background: #000000;
-}
-.bg_dark{
-	background: rgba(0,0,0,.8);
-}
-.email-section{
-	padding:2.5em;
-}
-
-/*BUTTON*/
-.btn{
-	padding: 10px 15px;
-}
-.btn.btn-primary{
-	border-radius: 30px;
-	background: #f3a333;
-	color: #ffffff;
-}
-
-
-
-h1,h2,h3,h4,h5,h6{
-	font-family: 'Playfair Display', serif;
-	color: #000000;
-	margin-top: 0;
-}
-
-body{
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 1.8;
-	color: rgba(0,0,0,.4);
-}
-
-a{
-	color: #f3a333;
-}
-
-table{
-}
-/*LOGO*/
-
-.logo h1{
-	margin: 0;
-}
-.logo h1 a{
-	color: #000;
-	font-size: 20px;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-}
-
-/*HERO*/
-.hero{
-	position: relative;
-}
-.hero img{
-
-}
-.hero .text{
-	color: rgba(255,255,255,.8);
-}
-.hero .text h2{
-	color: #ffffff;
-	font-size: 30px;
-	margin-bottom: 0;
-}
-
-
-/*HEADING SECTION*/
-.heading-section{
-}
-.heading-section h2{
-	color: #000000;
-	font-size: 28px;
-	margin-top: 0;
-	line-height: 1.4;
-}
-.heading-section .subheading{
-	margin-bottom: 20px !important;
-	display: inline-block;
-	font-size: 13px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	color: rgba(0,0,0,.4);
-	position: relative;
-}
-.heading-section .subheading::after{
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -10px;
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: #f3a333;
-	margin: 0 auto;
-}
-
-.heading-section-white{
-	color: rgba(255,255,255,.8);
-}
-.heading-section-white h2{
-	font-size: 28px;
-	font-family: 
-	line-height: 1;
-	padding-bottom: 0;
-}
-.heading-section-white h2{
-	color: #ffffff;
-}
-.heading-section-white .subheading{
-	margin-bottom: 0;
-	display: inline-block;
-	font-size: 13px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	color: rgba(255,255,255,.4);
-}
-
-
-.icon{
-	text-align: center;
-}
-.icon img{
-}
-
-
-/*SERVICES*/
-.text-services{
-	padding: 10px 10px 0; 
-	text-align: center;
-}
-.text-services h3{
-	font-size: 20px;
-}
-
-/*BLOG*/
-.text-services .meta{
-	text-transform: uppercase;
-	font-size: 14px;
-}
-
-/*TESTIMONY*/
-.text-testimony .name{
-	margin: 0;
-}
-.text-testimony .position{
-	color: rgba(0,0,0,.3);
-
-}
-
-
-/*VIDEO*/
-.img{
-	width: 100%;
-	height: auto;
-	position: relative;
-}
-.img .icon{
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin-top: -25px;
-}
-.img .icon a{
-	display: block;
-	width: 60px;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	margin-left: -25px;
-}
-
-
-
-/*COUNTER*/
-.counter-text{
-	text-align: center;
-}
-.counter-text .num{
-	display: block;
-	color: #ffffff;
-	font-size: 34px;
-	font-weight: 700;
-}
-.counter-text .name{
-	display: block;
-	color: rgba(255,255,255,.9);
-	font-size: 13px;
-}
-
-
-/*FOOTER*/
-
-.footer{
-	color: rgba(255,255,255,.5);
-
-}
-.footer .heading{
-	color: #ffffff;
-	font-size: 20px;
-}
-.footer ul{
-	margin: 0;
-	padding: 0;
-}
-.footer ul li{
-	list-style: none;
-	margin-bottom: 10px;
-}
-.footer ul li a{
-	color: rgba(255,255,255,1);
-}
-
-
-@media screen and (max-width: 500px) {
-
-	.icon{
-		text-align: left;
-	}
-
-	.text-services{
-		padding-left: 0;
-		padding-right: 20px;
-		text-align: left;
-	}
-
-}
-
-</style>
-
-
-</head>
-
-<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #222222;">
-	<center style="width: 100%; background-color: #f1f1f1;">
-    <div style="display: none; font-size: 1px;max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-    </div>
-    <div style="max-width: 600px; margin: 0 auto;" class="email-container">
-    	<!-- BEGIN BODY -->
-      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-      	<tr>
-          <td class="bg_white logo" style="padding: 1em 2.5em; text-align: center">
-            <h1><a href="#">Code Dao Cinema</a></h1>
-          </td>
-	      </tr><!-- end tr -->
-	      <tr>
-		      <td class="bg_white">
-		        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-		          <tr>
-		            <td class="bg_dark email-section" style="text-align:center;">
-		            	<div class="heading-section heading-section-white">
-		            		<span class="subheading">Welcome</span>
-		              	<h2>${header}</h2>
-		              	<p>${content}</p>
-		            	</div>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		            		<span class="subheading">Services</span>
-		              	<h2>Our Services</h2>
-		              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		            	</div>
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="icon">
-                              <img src="images/001-diet.png" alt="" style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services">
-                            	<h3>Healthy Foods</h3>
-                             	<p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="icon">
-                              <img src="images/003-recipe-book.png" alt="" style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services">
-                            	<h3>Original Recipes</h3>
-                              <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_light email-section" style="text-align:center;">
-		            	<table>
-		            		<tr>
-		            			<td class="img">
-		            				<table>
-		            					<tr>
-		            						<td>
-		            							<img src="images/bg_2.jpg" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;" class="g-img">
-		            						</td>
-		            					</tr>
-		            				</table>
-		            				<div class="icon">
-			            				<a href="#">
-		                        <img src="images/002-play-button.png" alt="" style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-		                      </a>
-	                      </div>
-		            			</td>
-		            		</tr>
-		            		<tr>
-		            			<td style="padding-top: 20px;">
-		            				<h2>Watch Our Video</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		            			</td>
-		            		</tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		            		<span class="subheading">Menu</span>
-		              	<h2>Our Delicious Food</h2>
-		              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		            	</div>
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td style="padding-right: 10px;">
-                              <img src="images/menu-1.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services" style="text-align: left;">
-                            	<h3>Pasta, Sauce Milk</h3>
-                             	<p>Far far away, behind the word mountains, far from the countries</p>
-                             	<p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td style="padding-left: 10px;">
-                              <img src="images/menu-2.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services" style="text-align: left;">
-                            	<h3>Sweetened Fruits</h3>
-                              <p>Far far away, behind the word mountains, far from the countries</p>
-                              <p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-
-		          <tr>
-		            <td class="bg_light email-section" style="padding: 0; width: 100%;">
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="text-services" style="text-align: left; padding: 20px 30px;">
-                            	<div class="heading-section">
-								            		<span class="subheading">Breakfast</span>
-								              	<h2 style="font-size: 22px;">Grilled Beef with potatoes</h2>
-								              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-								              	<p><a href="#" class="btn btn-primary">Read more</a></p>
-								            	</div>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/bg_3.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_light email-section" style="padding: 0; width: 100%;">
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/bg_4.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="text-services" style="text-align: left; padding: 20px 30px;">
-                            	<div class="heading-section">
-								            		<span class="subheading">Lunch</span>
-								              	<h2 style="font-size: 22px;">Grilled Beef with potatoes</h2>
-								              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-								              	<p><a href="#" class="btn btn-primary">Read more</a></p>
-								            	</div>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_light email-section" style="padding: 0; width: 100%;">
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="text-services" style="text-align: left; padding: 20px 30px;">
-                            	<div class="heading-section">
-								            		<span class="subheading">Dinner</span>
-								              	<h2 style="font-size: 22px;">Grilled Beef with potatoes</h2>
-								              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-								              	<p><a href="#" class="btn btn-primary">Read more</a></p>
-								            	</div>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/bg_6.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_light email-section" style="padding: 0; width: 100%;">
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/bg_5.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="50%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="text-services" style="text-align: left; padding: 20px 30px;">
-                            	<div class="heading-section">
-								            		<span class="subheading">Dessert</span>
-								              	<h2 style="font-size: 22px;">Grilled Beef with potatoes</h2>
-								              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-								              	<p><a href="#" class="btn btn-primary">Read more</a></p>
-								            	</div>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-			          <td valign="middle" class="counter" style="background-image: url(images/bg_1.jpg); background-size: cover; padding: 4em 0;">
-			            <table>
-			            	<tr>
-			            		<td valign="middle" width="25%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="counter-text">
-                            	<span class="num">9457</span>
-                            	<span class="name">Happy Customer</span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="25%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="counter-text">
-                            	<span class="num">20</span>
-                            	<span class="name">Years of Experienced</span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="25%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="counter-text">
-                            	<span class="num">80</span>
-                            	<span class="name">Branches</span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" width="25%">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td class="counter-text">
-                            	<span class="num">980</span>
-                            	<span class="name">Staff</span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-			            	</tr>
-			            </table>
-			          </td>
-				      </tr><!-- end tr -->
-				      <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		            		<span class="subheading">Blog</span>
-		              	<h2>Read Stories</h2>
-		              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		            	</div>
-		            	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td style="padding-right: 10px;">
-                              <img src="images/blog-1.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services" style="text-align: left;">
-                            	<p class="meta"><span>Posted on Feb 18, 2019</span> <span>Food</span></p>
-                            	<h3>Healthy Foods For Kids</h3>
-                             	<p>Far far away, behind the word mountains, far from the countries</p>
-                             	<p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td style="padding-left: 10px;">
-                              <img src="images/blog-2.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-services" style="text-align: left;">
-                            	<p class="meta"><span>Posted on Feb 18, 2019</span> <span>Food</span></p>
-                            	<h3>A Fresh Food Organic</h3>
-                              <p>Far far away, behind the word mountains, far from the countries</p>
-                              <p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          <tr>
-		            <td class="bg_light email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		            		<span class="subheading">Says</span>
-		              	<h2>Testimonial</h2>
-		              	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		            	</div>
-		            	<table role="presentation" border="0" cellpadding="10" cellspacing="0" width="100%">
-		            		<tr>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/person_1.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-testimony" style="text-align: center;">
-                            	<h3 class="name">Ronald Tuff</h3>
-                            	<span class="position">Businessman</span>
-                             	<p>Far far away, behind the word mountains, far from the countries</p>
-                             	<p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="top" width="50%" style="padding-top: 20px;">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="images/person_2.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-testimony" style="text-align: center;">
-                            	<h3 class="name">Willam Clarson</h3>
-                            	<span class="position">Businessman</span>
-                              <p>Far far away, behind the word mountains, far from the countries</p>
-                              <p><a href="#" class="btn btn-primary">Read more</a></p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-		            	</table>
-		            </td>
-		          </tr><!-- end: tr -->
-		          
-		        </table>
-
-		      </td>
-		    </tr><!-- end:tr -->
-      <!-- 1 Column Text + Button : END -->
-      </table>
-      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-      	<tr>
-          <td valign="middle" class="bg_black footer email-section">
-            <table>
-            	<tr>
-                <td valign="top" width="33.333%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+<div><div class="adM">
+</div><h4 id="m_-7300977919220284450preHeader" style="display:none;color:#fff;font-size:0px;line-height:0px">, please complete your PayPal account setup.</h4>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#ffffff" style="font-size:0px"></td>
+      <td bgcolor="#ffffff" width="660" align="center">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" dir="ltr">
+          <tbody>
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tbody>
                     <tr>
-                      <td style="text-align: left; padding-right: 10px;">
-                      	<h3 class="heading">RestoBar</h3>
-                      	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                      <td align="center" colspan="3" width="600">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f7fa" dir="ltr">
+                          <tbody>
+                            <tr>
+                              <td align="center" style="font-size:14px;line-height:24px;color:#687173;padding:20px"><span>Hello, This Email From CodeDao Service</span></td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="bottom"><img src="https://ci5.googleusercontent.com/proxy/Vn0Y0POPW_03dvXbA0iqbA4WsznU5cizjumJguCRRJ57ecos8g0sReyagS00DMtZ6A0XtHAj40dpu0evSMz2FWFlNT42dAVvNy0xHiqivlJav91e0PxDEnUsVqwHi__1v7dLI6htOZ81-y3dNE0EYeeFpAaHCvpid2qhqPSyJpccBEyUELu2HNM=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/pplogo-circletop-sm.png" width="116" height="16" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </td>
                     </tr>
-                  </table>
-                </td>
-                <td valign="top" width="33.333%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                      <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                      	<h3 class="heading">Contact Info</h3>
-                      	<ul>
-					                <li><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-					                <li><span class="text">+2 392 3929 210</span></a></li>
-					              </ul>
-                      </td>
+                      <td></td>
+                      <td align="center" width="600"><img src="https://marathondefilm.nl/wp-content/uploads/2020/01/logo-movie.png" width="116" height="85" style="display:block" border="0" alt="PayPal" title="PayPal" class="CToWUd" data-bit="iit"></td>
+                      <td></td>
                     </tr>
-                  </table>
-                </td>
-                <td valign="top" width="33.333%" style="padding-top: 20px;">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                      <td style="text-align: left; padding-left: 10px;">
-                      	<h3 class="heading">Useful Links</h3>
-                      	<ul>
-					                <li><a href="#">Breakfast</a></li>
-					                <li><a href="#">Lunch</a></li>
-					                <li><a href="#">Dinner</a></li>
-					                <li><a href="#">Dessert</a></li>
-					              </ul>
+                      <td align="center" valign="top" style="min-width:10px" bgcolor="#004f9b"><img width="100%" height="81" src="https://ci6.googleusercontent.com/proxy/GsRQ45UFDFHNJuuSD4UyRIHZnPsDMLtcrMgUh9clrtuIlJ9ie2aoareojsvaFa69I4LxwaLHrXZrbilObptP4khOFPSwaGff2zQ3Fe6RNZh4mryWOH3avH3nqCHOZvUOKrUsEyw8KmZr5BJwUEVlNFYrSiQwywpk4pxEICWJiJOABH4=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/header-sidebar-left-top.jpg" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                      <td align="center" width="600">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td width="12" align="center" valign="top"><img width="12" height="81" src="https://ci6.googleusercontent.com/proxy/gwgdZrbB5LM1ZwFsjRxLiyq4jxNFtgEXdagO4RsY8pkvEGszVY8bM4dD1aWovEKJQk5nazxz_kaKJIdKXtgp9rB4DzER1KztmsLwPEYHGIXSJIam8ARqLF-pvIPbisGfvIIkDLg7hqp8UeVgcJXcrjxrnnJ_CaxdZbeXqMnoNrnpb3nl43ZZ0g=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/header-left-corner.png" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td width="229" align="center" valign="top"><img width="100%" height="81" src="https://ci6.googleusercontent.com/proxy/vtnjNBlVWpJ1qap7qkQFSGOqZ6oE-oY66jUbVDe4sqtumYP85Waz_w52K8cI4RPBdpugXXNN0StI3rXc7LLpGjgLEss64bTiPqvF0A92k8PMsCPqZYTWG6Z9pJycuXkkKPy0Mk7Q1Itf7dbs-ZnSurRuisv04q3Y0tIXBAMIENoi=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/header-left.png" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td width="118" align="center" valign="top"><img width="118" height="81" src="https://ci5.googleusercontent.com/proxy/EP3tWOlu1hFL2VoNwbdO1mdBWVAz7Zneav5Tlaprp--8C3Tn8Q_KYcB69j5Q0-9se8vr53B2evRDxN1bT0U3fxHFE1iUTDFTF12A3Kc-UrgJthp3d2dwDs48BZzfQSntB-TLmRmvELF_cSY7ue4w0zYF43-rSGCrd-QwV_Hf0KhTpMhFGQOXXclS=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/header-center-circle.png" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td width="229" align="center" valign="top"><img width="100%" height="81" src="https://ci5.googleusercontent.com/proxy/EdhEUFZXcbjXgtFMqZS4_KkoxdsBQqlmhd3y2yZaovzayOrhi0fl35Yzn7XBKU9AYQ3BJPP9hH_cRnH3bqIvGJs_ZA33l0E9DgtffSFr7i8HZNp4Sh8ZDy51EOjEfLHiHw8OElQ8hakWScWU79VHzTTuCsDLXGYzZk2EuYPcoXf6-w=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/header-right.png" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td width="12" align="center" valign="top"><img width="12" height="81" src="https://ci3.googleusercontent.com/proxy/ABCBHhY7JuFgveLvAbBAAEE57hrUmpiz4yM6zUFO1Yw54wPRnIM4-gpPWm0I8_hcN_uOYyIS3Wo9ptELv9yj-NLT2n6n_K9LT7Rlw67HBwAqmumG-DDDSdJ1KfjiWK2m8W3tu81AwHFgxUUSfVF78DOr-HOKET7wsjzG0bzEzSEpvj6stzIi8tU=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/header-right-corner.png" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </td>
+                      <td align="center" valign="top" style="min-width:10px" bgcolor="#004f9b"><img width="100%" height="81" src="https://ci6.googleusercontent.com/proxy/QDQw8G1Jt4gXFJwNumnKT6oh1rUOYPZGDK10yrmawTOjM5Fq0x09udc00qTAoviCJse4gVSmX8bK-18SIYyb0dqmwX0kQM1hiWPCzRlksMbBkDXOvu4tN2itSwxBs9pn1UcVNBRq4dlbpY8lnyoUPKKHt5UFDpOcQL8sGo43zA_nmp5J=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/header-sidebar-right-top.jpg" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr><!-- end: tr -->
-        <tr>
-        	<td valign="middle" class="bg_black footer email-section">
-        		<table>
-            	<tr>
-                <td valign="top" width="33.333%">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" dir="ltr">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" style="min-width:10px">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
                     <tr>
-                      <td style="text-align: left; padding-right: 10px;">
-                      	<p>&copy; 2018 Restobar. All Rights Reserved</p>
-                      </td>
+                      <td align="center" valign="top" bgcolor="#004f9b"><img src="https://ci3.googleusercontent.com/proxy/li1lzePIClKspAmlQFjJlYX_faBkvJHk1SLYGx5Z05tN1t_nCdga9bzGIy6ezhaPqgu108cV0CVj-RKpiEjwkfqZGhi5S7HB7aspPZNZwlPrOe-61OsMPaSTdSpJz6pcQ6NmiAPInA3Rm6p-KEsJyY5elt2S4sAA7gTn-Qc6EWh4e-u-cg8=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/header-sidebar-left-bottom.jpg" width="100%" height="96" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
                     </tr>
-                  </table>
-                </td>
-                <td valign="top" width="33.333%">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                      <td style="text-align: right; padding-left: 5px; padding-right: 5px;">
-                      	<p><a href="#" style="color: rgba(255,255,255,.4);">Unsubcribe</a></p>
+                      <td align="right" valign="top"><img src="https://ci6.googleusercontent.com/proxy/WQjvo26UDc8NjWdNORNx_7wLJmKwE13u_y3R9QnvnPF4xfWqQTnPIAVijrlQkfQHEkg_hhmCwBWT4rsipRuvujkRx9tjslBCCGkVfWaCcxifClWIV7WvX0yiz9K4RpwZF-4eJCp4ggi0v9WsDKiTQDNj5-6gE6TBVTdcrVfKxqqB9O2wd4E=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/sidebar-gradient.png" width="1" height="100" style="display:block" alt="" class="CToWUd" data-bit="iit"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td width="600" valign="top" align="center"><br>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:0px 20px 30px 20px;word-break:break-word">
+                  <tbody>
+                    <tr>
+                      <td align="center">
+                        <p style="font-size:32px;line-height:40px;color:#2c2e2f;margin:0" dir="ltr"><span><span class="il">${header}</p>
                       </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-        	</td>
-        </tr>
-      </table>
-
-    </div>
-  </center>
-</body>
-</html>
+                  </tbody>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:0px 20px 20px 20px">
+                  <tbody>
+                    <tr>
+                      <td align="center" valign="top">
+                        <p style="font-size:20px;line-height:28px;color:#687173;margin:0" dir="ltr"><span>${content}</span></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="padding:0px 30px 30px 30px">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tbody>
+                            <tr>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="padding:0px 10px 20px 10px">
+                        <table id="m_-7300977919220284450cartDetails" cellspacing="0" cellpadding="0" border="0" width="100%" dir="ltr" style="font-size:16px">
+                          <tbody>
+                            <tr>
+                              <td style="padding:10px 10px;text-align:center;border-top:0px"><img src="https://ci6.googleusercontent.com/proxy/8hYYJ7J5Gv5kxE9-1MNvKTJX-4Ib5RsMYTbKxTGmEQuSqtv8UfmxCACSIsHNew_2W4bXDosHS61y-8U7e9TV2JzDhR8agGaXXoMzID9-cScV1rAAY0zAH98jKPSVp2QNay9y_fpionO5VRC1TYyoG75WA7E=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/w100/glyph_security_blue.png" width="50" height="50" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td style="padding:10px 10px;text-align:center;border-top:0px"><img src="https://ci4.googleusercontent.com/proxy/HJlfdwXRsvBl6gwoN7aubv2Xk-IWtrr-SPht9P1zMGxeSrCQHnUK6vL54OqY5m0uMfH_ep0IpY9OYSRf8KBT484lfPq2p2oIogkxGy5HU5e2JoXoPVdVRPwjapYRpgZx5WvE6PHJk7XD6POHJHZCSFnNELk=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/w100/glyph_shopping_blue.png" width="50" height="50" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td style="padding:10px 10px;text-align:center;border-top:0px"><img src="https://ci3.googleusercontent.com/proxy/-s5BceYsCrc_2TbphCz7PYuPGatu09AZEeqHjwlZuX39wzgjSAjSKU6P2edSa3cW_49da1V8AYdjSvf1zonS55za5BC-StBHo4z0BNuzNJnMjrO_frXlbTvbJdnEORDNZbOa6Pn-YOgVgzcIMqD-LA=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/w100/glyph_card_blue.png" width="50" height="50" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                            </tr>
+                            <tr>
+                              <td style="padding:10px;text-align:center;border-top:0px"><strong>Protection</strong></td>
+                              <td style="padding:10px;text-align:center;border-top:0px"><strong>Payments</strong></td>
+                              <td style="padding:10px;text-align:center;border-top:0px"><strong>Card Reward Points</strong></td>
+                            </tr>
+                            <tr>
+                              <td style="padding:10px;text-align:center;border-top:0px"><span>Code Dao stores and secures all information provided by customers in the company's data system</span></td>
+                              <td style="padding:10px;text-align:center;border-top:0px"><span>Website Code Dao is applying payment methods via Paypal payment gateway. All these payment methods are operated in the manner prescribed by payment gateways and e-wallets</span></td>
+                              <td style="padding:10px;text-align:center;border-top:0px"><span>For each transaction arising using a member account, including buying tickets or buying corn, water, etc., member customers will accumulate reward points (RP).</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td valign="top" align="left" style="min-width:10px">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td valign="top" align="center" bgcolor="#004f9b"><img width="100%" border="0" height="96" style="display:block" src="https://ci4.googleusercontent.com/proxy/3Vgse0KtQW0Jm0uM-7uIlQSa4BZZZHguqnJ0Wbi9WbqUm_t96uYxbGXSRJWchWqzmF8q3PgbfHvJJj9iPVdtUT45vb7MVCS_y5BBYPoHjQb8WYLYmouYlrjDOT9LgTQCVT39O3HOsDDRr9pYeS1x-xjf7jwE1J1USiF1Dv4U7AotmcSC66H1=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/header-sidebar-right-bottom.jpg" alt="" class="CToWUd" data-bit="iit"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" align="left"><img width="1" height="100" style="display:block" src="https://ci6.googleusercontent.com/proxy/WQjvo26UDc8NjWdNORNx_7wLJmKwE13u_y3R9QnvnPF4xfWqQTnPIAVijrlQkfQHEkg_hhmCwBWT4rsipRuvujkRx9tjslBCCGkVfWaCcxifClWIV7WvX0yiz9K4RpwZF-4eJCp4ggi0v9WsDKiTQDNj5-6gE6TBVTdcrVfKxqqB9O2wd4E=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/sidebar-gradient.png" alt="" class="CToWUd" data-bit="iit"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td align="center" width="600">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" dir="ltr">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td width="12" align="center" valign="top"><img src="https://ci5.googleusercontent.com/proxy/_4oMyrzFiF4q8xgxJ8_dEu1r8bjn2tK-LkryMJwpCSasaBazNq-V-MZxgqwyyhhVevbZJ5kBkLpeFu5CAWN3uI8L6rNsWsdmda-ROUTGttKAF-IVjgmcrzeQWK3Gdj6slGGQA1YN-E3vVQa3sIENRnXqCjO-X6rD9XqQocQwwkjSFrxq6VoTzQ=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/footer-left-corner.png" width="12" height="141" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td align="center" valign="top"><img src="https://ci6.googleusercontent.com/proxy/Lj-47Vw8EUmm5HxNoRcxP4U1TRXUlbXwRGvWkW5xrFDJox9Lr1XrmHejRsvmG1uMSWihTvfKA8jcSw_Q4TPIy3W1ci5Z7w159Y_w5Bo6gmTJ4rK3ThU-BVzDfahAxUlhvtkk7l0Y73RofyiI7YUqlyIsWQmSis9huyP0B8_gNbE7JO_sVLbWgg=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/footer-left-stroke.png" width="100%" height="141" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              
+                              <td align="center" valign="top"><img src="https://ci4.googleusercontent.com/proxy/YotBUKGWuOk_ErsKNmyW2xOOFNkrDOxhFF56lyg7KqtSJDVYE8U1Hdq7BhOFJagkO8nq1plIuymw0gdH7H2gO9YV7oEHOWY6jpJe4uc_Wfgewyh18VRjS7IN_lQJNm3Dvv5p7nRu1iYchVBID1sYFzV1qbSWYt2_e_YtSKpfb0Jn8nCGq1V3BEc=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/footer-right-stroke.png" width="100%" height="141" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                              <td width="12" align="center" valign="top"><img src="https://ci6.googleusercontent.com/proxy/tsMGyRlZlbFCmUCBURycijkNGWzDxtkbINsbsHFbRAvva3QGJB2BRm89FRUlaHqNS5ChAtQsrikBaexzYdYFKZoOfZXyH0VwvZPuj9hDAAiPrtbHuo280N9ef3rqWzFXdTpG6kAwOzVy0SLPO2HzNNLGwAwElQK5DidK8K7InMgG7ByLiFymaBw=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/footer-right-corner.png" width="12" height="141" style="display:block" border="0" alt="" class="CToWUd" data-bit="iit"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table id="m_-7300977919220284450body_footer_links" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:0px">
+                  <tbody>
+                    <tr>
+                      <td align="center" style="font-size:15px;line-height:22px;color:#444444;padding:20px"><a href="https://www.paypal.com/vn/smarthelp/home?v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" style="color:#0070ba;text-decoration:none" alt="Help &amp; Contact" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.paypal.com/vn/smarthelp/home?v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw30nJAx-hZ9dRKQ9ExPYH1B">Help &amp; Contact</a><span> | </span><a href="https://www.paypal.com/vn/webapps/mpp/paypal-safety-and-security?v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" style="color:#0070ba;text-decoration:none" alt="Security" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.paypal.com/vn/webapps/mpp/paypal-safety-and-security?v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw3ePhziCGJbX7l7BV1D7AIS">Security</a><span> | </span><a href="https://www.paypal.com/vn/webapps/mpp/mobile-apps?v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" style="color:#0070ba;text-decoration:none" alt="Apps" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.paypal.com/vn/webapps/mpp/mobile-apps?v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw3gvpnmR_iAnuxMKZVH-iZQ">Apps</a></td>
+                    </tr>
+                    <tr>
+                      <td align="center" style="padding-bottom:20px;padding-top:0px">
+                        <table align="center" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td align="center" valign="middle" width="50"><a id="m_-7300977919220284450twitter" href="https://twitter.com/PayPal?v=1%2C0.1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://twitter.com/PayPal?v%3D1%252C0.1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw0reXSJjExsp-WSonfa3leS"><img border="0" src="https://ci5.googleusercontent.com/proxy/4qfFVV1RPmVqq9XSghFmkTaxEUROtzRDwmYm-BWwTt32PSeLOOvFPMq-SKSBY35Ko5oMEi_J27TK0PRvScPL7O4ck-56k86hTqK70qJbRaLxmfNeKIxzt88Pf7tjWDszJDXifg9Xi68_vkK1SwZuPfWNqlIGnU37XHZQ3Cw=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/icon-tw.png" width="28" height="28" style="display:block" alt="Twitter" class="CToWUd" data-bit="iit"></a></td>
+                              <td align="center" valign="middle" width="50"><a id="m_-7300977919220284450instagram" href="https://www.instagram.com/paypal/?v=1%2C0.1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.instagram.com/paypal/?v%3D1%252C0.1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw3hiLMVien6giiPJVih8cJ5"><img border="0" src="https://ci4.googleusercontent.com/proxy/bmJBXMhbrdGTcSBjeP9MgRW42x9qzdkPY7qF2No7LtRRPoRt_cSgJ_iTXfzckIXZj2GaEnF8rYxJV4mQkK1zV-3_U0MoYHEqk_ptz4BJhNVS1RVMfC_vQ-d7ezpt_uOxTXh-peBilOv1fjMkdFTy_fpLfs-O0Hi911jFRbw=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/icon-ig.png" width="28" height="28" style="display:block" alt="Instagram" class="CToWUd" data-bit="iit"></a></td>
+                              <td align="center" valign="middle" width="50"><a id="m_-7300977919220284450facebook" href="https://www.facebook.com/PayPalUSA?v=1%2C0.1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.facebook.com/PayPalUSA?v%3D1%252C0.1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw0OdL3YPwfkFwX0P5_XekdL"><img border="0" src="https://ci4.googleusercontent.com/proxy/MFNzrqYz4U0XhJvc3ZlTlukIMeQcmxhLkm72sww2oDSD0HMaWQDCaRAiOaSKQpjvPw2ugiZs7RYecQoV5PHQgw6Wyf4LgsarvzMMYUD4T3P-qmd4PFApYNZFZngCarUgD5EuGFwgiOBqm7xMbQWRCtXBefiMaaZ1VHLN1gI=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/icon-fb.png" width="28" height="28" style="display:block" alt="Facebook" class="CToWUd" data-bit="iit"></a></td>
+                              <td align="center" valign="middle" width="50"><a id="m_-7300977919220284450linkedin" href="http://www.linkedin.com/company/1482?trk=tyah&amp;v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.linkedin.com/company/1482?trk%3Dtyah%26v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw3po-lD-GabCDRyxUdBb-z3"><img border="0" src="https://ci6.googleusercontent.com/proxy/aqZyYIHlLYUtGyUHNy-d-RSwU1GTg1J8SLj-FrzG-948ki1N08WlFyo_W7BUed-JVMt7EzByN13vrEqORA4IeKEjiJaHpAOL2Ps_vsVxCgfD9xLcKtqxSPMEC8xr5k5isTS0fKM_-WT4q8ugnNDi2cmd8H3tgPC6HyBuDBs=s0-d-e1-ft#https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/dark-mode/icon-li.png" width="28" height="28" style="display:block" alt="LinkedIn" class="CToWUd" data-bit="iit"></a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding-bottom:20px">
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td align="center" width="600">
+                <table id="m_-7300977919220284450hideForTextFooter" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+                <table id="m_-7300977919220284450hideForTextFooter" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="font-size:13px;line-height:20px;color:#687173;padding:10px 30px 10px 30px">
+                        <p style="font-size:13px;margin:0" dir="ltr"><span>Please don't reply to this email. To get in touch with us, click <strong><a href="https://www.paypal.com/selfhelp/home?v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" style="text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.paypal.com/selfhelp/home?v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865342000&amp;usg=AOvVaw2BlolFxtNNrIZawwit4qtm">Help &amp; Contact</a></strong>.</span></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table id="m_-7300977919220284450" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="font-size:13px;line-height:20px;color:#687173;padding:10px 30px 10px 30px">
+                        <p style="font-size:13px;margin:0" dir="ltr"><span>Not sure why you received this email? <a href="https://www.paypal.com/vn/smarthelp/article/why-am-i-receiving-emails-from-paypal-when-i-dont-have-an-account-faq4172?v=1&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=RT000263&amp;utm_unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;ppid=RT000263&amp;cnac=VN&amp;rsta=en_US%28en-VN%29&amp;cust=8ZP42H49X92DY&amp;unptid=fd60597a-3009-11ed-9aba-3cfdfef09161&amp;calc=9b46ac4a1539a&amp;unp_tpcid=ConsumerConfirmEmailReminder&amp;page=main%3Aemail%3ART000263&amp;pgrp=main%3Aemail&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys&amp;appVersion=1.110.0&amp;xt=109981%2C104038%2C127631" style="text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.paypal.com/vn/smarthelp/article/why-am-i-receiving-emails-from-paypal-when-i-dont-have-an-account-faq4172?v%3D1%26utm_source%3Dunp%26utm_medium%3Demail%26utm_campaign%3DRT000263%26utm_unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26ppid%3DRT000263%26cnac%3DVN%26rsta%3Den_US%2528en-VN%2529%26cust%3D8ZP42H49X92DY%26unptid%3Dfd60597a-3009-11ed-9aba-3cfdfef09161%26calc%3D9b46ac4a1539a%26unp_tpcid%3DConsumerConfirmEmailReminder%26page%3Dmain%253Aemail%253ART000263%26pgrp%3Dmain%253Aemail%26e%3Dcl%26mchn%3Dem%26s%3Dci%26mail%3Dsys%26appVersion%3D1.110.0%26xt%3D109981%252C104038%252C127631&amp;source=gmail&amp;ust=1668581865343000&amp;usg=AOvVaw0lZyPTEY6NcjJ14B-ongkw">Learn more</a></span></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td bgcolor="#ffffff" style="font-size:0px"></td>
+    </tr>
+  </tbody>
+</table><div class="yj6qo"></div><div class="adL">
+</div></div>

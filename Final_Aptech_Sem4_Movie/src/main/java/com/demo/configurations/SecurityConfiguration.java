@@ -25,7 +25,6 @@ public class SecurityConfiguration {
 		http.cors().and().csrf().disable();
 		http.authorizeHttpRequests()
 			.antMatchers("/home/**", "/aboutus/**").permitAll()
-//			.antMatchers("/desk/**").hasAuthority("ROLE_SUPER_ADMIN")
 			.antMatchers("/movie/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 			.antMatchers("/ticket/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 			.antMatchers("/account/history").hasAnyAuthority("ROLE_USER")
