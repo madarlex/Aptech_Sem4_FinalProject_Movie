@@ -32,18 +32,22 @@
 					
 				</div>
 				<div class="flex-wrap-movielist user-fav-list">
-					<div class="movie-item-style-2">
-						<c:forEach var="ticket" items="${tickets }"  varStatus="i">
-						<img style="width: 15%" src="${pageContext.request.contextPath }${ticket.getMovieshowtime().getMovie().picture }" alt="">
-						  <div class="mv-item-infor">
-								<h6><a href="#">${ticket.getMovieshowtime().getMovie().name }</a></h6>
-								<p class="rate"><i class="ion-android-star"></i><span>${ticket.getMovieshowtime().getMovie().rate }</span> /10</p>
+					<div class="row">
+					<c:forEach var="ticket" items="${tickets }"  varStatus="i">
+						<div class="col-md-4" style="display: flex; margin-bottom: 30px">
+						<img src="${pageContext.request.contextPath }${ticket.getMovieshowtime().getMovie().picture }" alt="">
+						  <div class="mv-item-infor" style="margin-left: 15px">
+								<h4><a style="color: #ffffff;font-family: 'Dosis', sans-serif; font-size: 24px" href="#">${ticket.getMovieshowtime().getMovie().name }</a></h4>
+								<p style="margin-top: 5px" class="rate"><i style="color: #f5b50a;
+    font-size: 22px;
+    margin-right: 5px;
+}" class="ion-android-star"></i><span>${ticket.getMovieshowtime().getMovie().rate }</span> /10</p>
 								<p class="run-time"> Run Time: ${ticket.getMovieshowtime().getMovie().length }p    <span>Release: ${ticket.getMovieshowtime().getMovie().startDate }</span></p>
 								<p>Seat: ${ticket.getSeat().position }</p>
-							</div>	
+							</div>
+						</div>	
 					</c:forEach>
 					</div>
-				</div>		
 			</div>
 		</div>
 	</div>
