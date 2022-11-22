@@ -12,6 +12,7 @@ import com.demo.models.Account;
 import com.demo.models.AvailableSeats;
 import com.demo.models.Hall;
 import com.demo.models.Ticket;
+import com.demo.models.TicketPriceDetail;
 
 
 
@@ -23,5 +24,8 @@ public interface TicketService {
 	public List<Ticket> findAllByUserId(int user_id);
 	public Page<Ticket> findAll(int numberPage);
 	public Ticket findById(int id);
+	public TicketPriceDetail findAllDetailByTicketId(int ticketId);
+	public void deleteDetail (TicketPriceDetail detail);
+	public void deleteTicket(Ticket ticket);
 
 }

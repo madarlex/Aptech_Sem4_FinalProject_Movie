@@ -24,6 +24,7 @@ ${msg }
 						<th>Hall</th>
 						<th>Show Date</th>
 						<th>Show Time</th>
+						<th>End Time</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -38,7 +39,11 @@ ${msg }
 							</td>
 							<td>
 								<!-- <div class="badge badge-success">Active</div> --> <fmt:formatDate
-									value="${s.showTime }" pattern="HH:mm:ss" />
+									value="${s.showTime }" pattern="HH:mm" />
+							</td>
+							<td>
+								<!-- <div class="badge badge-success">Active</div> --> <fmt:formatDate
+									value="${s.endTime }" pattern="HH:mm" />
 							</td>
 							<td>${s.status == true ? "Activated" : "Inactive" }</td>
 							<td><a

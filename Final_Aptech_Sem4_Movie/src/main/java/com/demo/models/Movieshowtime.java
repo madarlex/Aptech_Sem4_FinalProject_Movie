@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Nov 2, 2022, 8:26:37 PM by Hibernate Tools 4.3.6.Final
+// Generated Nov 22, 2022, 10:51:01 AM by Hibernate Tools 4.3.6.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -30,25 +30,29 @@ public class Movieshowtime implements java.io.Serializable {
 	private Date showDate;
 	private boolean status;
 	private Date showTime;
+	private Date endTime;
 	private Set<Ticket> tickets = new HashSet<Ticket>(0);
 
 	public Movieshowtime() {
 	}
 
-	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime) {
+	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime, Date endTime) {
 		this.hall = hall;
 		this.movie = movie;
 		this.showDate = showDate;
 		this.status = status;
 		this.showTime = showTime;
+		this.endTime = endTime;
 	}
 
-	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime, Set<Ticket> tickets) {
+	public Movieshowtime(Hall hall, Movie movie, Date showDate, boolean status, Date showTime, Date endTime,
+			Set<Ticket> tickets) {
 		this.hall = hall;
 		this.movie = movie;
 		this.showDate = showDate;
 		this.status = status;
 		this.showTime = showTime;
+		this.endTime = endTime;
 		this.tickets = tickets;
 	}
 
@@ -111,6 +115,16 @@ public class Movieshowtime implements java.io.Serializable {
 
 	public void setShowTime(Date showTime) {
 		this.showTime = showTime;
+	}
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "end_time", nullable = false, length = 8)
+	public Date getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "movieshowtime")

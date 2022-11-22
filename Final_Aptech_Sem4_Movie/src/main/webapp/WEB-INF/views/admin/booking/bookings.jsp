@@ -13,7 +13,7 @@ ${msg }
 <body>
 	<div class="card">
 		<div class="card-header">
-			<h4>Movies</h4>
+			<h4>Bookings</h4>
 		</div>
 		<div class="card-body p-0">
 			<div class="table-responsive">
