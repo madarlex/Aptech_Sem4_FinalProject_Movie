@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.demo.models.Ticket;
+import com.demo.models.TicketPriceDetail;
 import com.demo.models.AvailableSeats;
 import com.demo.models.Movieshowtime;
 
@@ -26,6 +27,9 @@ public interface TicketRepository extends PagingAndSortingRepository<Ticket, Lon
 	
 	@Query(value = "select * from Ticket where status = 1",nativeQuery = true)
 	public Page<Ticket> findAllByStatus(Pageable pageable);
+	
+	@Query("from TicketPriceDetail where ticket_id = :ticket_id")
+	public TicketPriceDetail findAllDetailByTicketId(@Param("ticket_id") int ticketId);
 
 }
 

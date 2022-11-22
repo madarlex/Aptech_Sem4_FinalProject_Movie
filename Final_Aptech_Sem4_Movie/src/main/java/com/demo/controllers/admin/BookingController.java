@@ -49,7 +49,7 @@ import com.demo.services.admin.MovieshowtimeService;
 import com.demo.services.admin.PayPalService;
 import com.demo.services.admin.PriceService;
 import com.demo.services.admin.SeatService;
-import com.demo.services.admin.TicketPriceDetailService;
+import com.demo.services.TicketPriceDetailService;
 import com.demo.services.admin.TicketService;
 
 
@@ -165,69 +165,13 @@ public class BookingController {
 			ticket.setSeat(seat);
 			ticket.setStatus(true);
 			ticketService.save(ticket);
+			Price chosenPrice = priceService.findByDescription(chosenMovieShowTime.getShowDate());
+			TicketPriceDetail ticketPriceDetail = new TicketPriceDetail();
+			ticketPriceDetail.setTicket(ticket);
+			ticketPriceDetail.setPrice(chosenPrice);
+			ticketPriceDetailService.save(ticketPriceDetail);
 		}
 		return "redirect:/admin/booking/bookings";
-	}
-	
-	@RequestMapping(value={"index"}, method=RequestMethod.GET)
-	public String index(Principal principal, ModelMap modelMap, HttpSession session, @ModelAttribute("selectedSeat") AvailableSeats selectedSeat, @RequestParam String movieShowTimeId) {
-		System.out.println(movieShowTimeId);
-		if (movieShowTimeId.isEmpty()) {
-			System.out.println(movieShowTimeId);
-			return "home/index";
-		} else {
-
-			Movieshowtime chosenMovieShowTime = movieshowtimeService.findById(Integer.parseInt(movieShowTimeId));
-			Price chosenPrice = priceService.findByDescription(chosenMovieShowTime.getShowDate());
-			session.setAttribute("chosenPrice", chosenPrice);
-			session.setAttribute("chosenMovieShowTime", chosenMovieShowTime);
-			List<AvailableSeats> availableSeats = (List<AvailableSeats>) seatService.getAvailableSeats(chosenMovieShowTime.getHall().getId(), chosenMovieShowTime.getId());
-//			List<AvailableSeats> availableSeats_A = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_B = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_C = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_D = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_E = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_F = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_G = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_H = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_I = new ArrayList<AvailableSeats>();
-//			List<AvailableSeats> availableSeats_J = new ArrayList<AvailableSeats>();
-//			for (AvailableSeats availableSeat : availableSeats) {
-//				if (availableSeat.getPosition().substring(0,1).equals("A")) {
-//					availableSeats_A.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("B")) {
-//					availableSeats_B.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("C")) {
-//					availableSeats_C.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("D")) {
-//					availableSeats_D.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("E")) {
-//					availableSeats_E.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("F")) {
-//					availableSeats_F.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("G")) {
-//					availableSeats_G.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("H")) {
-//					availableSeats_H.add(availableSeat);
-//				} else if (availableSeat.getPosition().substring(0,1).equals("I")) {
-//					availableSeats_I.add(availableSeat);
-//				} else {
-//					availableSeats_J.add(availableSeat);
-//				}
-//			}
-//			modelMap.put("availableSeats_A", availableSeats_A);
-//			modelMap.put("availableSeats_B", availableSeats_B);
-//			modelMap.put("availableSeats_C", availableSeats_C);
-//			modelMap.put("availableSeats_D", availableSeats_D);
-//			modelMap.put("availableSeats_E", availableSeats_E);
-//			modelMap.put("availableSeats_F", availableSeats_F);
-//			modelMap.put("availableSeats_G", availableSeats_G);
-//			modelMap.put("availableSeats_H", availableSeats_H);
-//			modelMap.put("availableSeats_I", availableSeats_I);
-//			modelMap.put("availableSeats_J", availableSeats_J);
-			modelMap.put("availableSeats", availableSeats);
-			return "ticket/index";
-		}
 	}
 	
 	@RequestMapping(value = "continueBookingTicket", method = RequestMethod.GET)
@@ -260,13 +204,13 @@ public class BookingController {
 	public String delete (ModelMap modelMap, @PathVariable("id")int id) {
 		
 		Ticket ticket = ticketService.findById(id);
-		ticket.setStatus(false);
-		if (ticketService.save(ticket) != null) {
-			return "redirect:/admin/booking/bookings";
-		}
+		TicketPriceDetail detail = ticketService.findAllDetailByTicketId(id);
+		ticketService.deleteDetail(detail);
+		ticketService.deleteTicket(ticket);
 		//modelMap.put("movie", new Movie());
 		return "redirect:/admin/booking/bookings";
 	}
+	
 	@GetMapping("/bookings/{pageNumber}")
 	public String listByPage (ModelMap modelMap,@PathVariable("pageNumber") int currentPage,HttpSession session) {
 		Page<Ticket> page = ticketService.findAll(currentPage);

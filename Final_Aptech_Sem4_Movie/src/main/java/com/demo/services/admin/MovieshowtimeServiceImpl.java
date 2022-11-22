@@ -64,6 +64,11 @@ public class MovieshowtimeServiceImpl implements MovieshowtimeService {
 	public void delete(Movieshowtime showtime) {
 		movieshowtimeRepository.delete(showtime);
 	}
+
+	@Override
+	public int checkValidateHallAndShowTime(int hallId, String showDate, String showTime, String endTime) {
+		return movieshowtimeRepository.checkValidateHallAndShowTime(hallId, showDate, showTime, endTime);
+	}
 	
 //	@Override
 //	public List<Movieshowtime> findShowtimeByDate(Date date) {

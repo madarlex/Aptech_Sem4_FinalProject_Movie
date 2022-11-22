@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,8 @@ public interface MovieshowtimeService {
 	public List<Movieshowtime> findShowtimemovieByMovieIdAndByDate(int movieId, Date date);
 	
 	public void delete(Movieshowtime showtime);
+	
+	public int checkValidateHallAndShowTime(int hallId, String showDate, String showTime, String endTime);
 //	
 //	public List<Movieshowtime> findShowtimeByDate(Date date);
 }

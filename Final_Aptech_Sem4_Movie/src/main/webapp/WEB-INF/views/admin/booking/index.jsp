@@ -91,7 +91,7 @@ button {
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h4>Add Movie Showtime</h4>
+							<h4>Booking Ticket</h4>
 						</div>
 						<div class="card-body">
 							<!-- choose movie -->
