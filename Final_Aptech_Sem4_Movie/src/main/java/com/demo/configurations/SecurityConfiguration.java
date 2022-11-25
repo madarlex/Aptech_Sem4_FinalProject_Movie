@@ -27,9 +27,12 @@ public class SecurityConfiguration {
 			.antMatchers("/home/**", "/aboutus/**").permitAll()
 			.antMatchers("/movie/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 			.antMatchers("/ticket/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-			.antMatchers("/account/history").hasAnyAuthority("ROLE_USER")
+			.antMatchers("/account/history").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
 			.antMatchers("/account/edit").hasAnyAuthority("ROLE_USER")
 			.antMatchers("/about/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+//			.antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+//			.antMatchers("/admin/movie/**").hasAnyAuthority("ROLE_ADMIN")
+//			.antMatchers("/admin/booking/movies").hasAnyAuthority("ROLE_ADMIN")
 			.and()
 			.formLogin().loginPage("/account/login")
 			.loginProcessingUrl("/account/processLogin") // khai bao trong login.jsp

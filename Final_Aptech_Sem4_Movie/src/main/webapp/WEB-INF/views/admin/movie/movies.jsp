@@ -23,22 +23,72 @@ ${msg }
 						<th>Name</th>
 						<th>Description</th>
 						<th>Start Date</th>
+						<th>End Date</th>
+						<th>Is Showing</th>
+						<th>Rate</th>
+						<th>Hot Movie</th>
+						<th>Trailer</th>
 						<th>Action</th>
 					</tr>
 					<c:forEach var="m" items="${movies }" varStatus="i">
 						<tr>
 							<%-- <td>${i.count }</td> --%>
-							<td>${m.name }</td>
-							<td>${m.description }</td>
-							<td>
+							<td align="center">${m.name }</td>
+							<td align="center">${m.description }</td>
+							<td align="center">
 								<!-- <div class="badge badge-success">Active</div> --> <fmt:formatDate
 									value="${m.startDate }" pattern="dd/MM/yyyy" />
 							</td>
-							<td><a
+							<td align="center">
+								<!-- <div class="badge badge-success">Active</div> --> <fmt:formatDate
+									value="${m.endDate }" pattern="dd/MM/yyyy" />
+							</td>
+							<td align="center">
+								<c:choose>
+									<c:when test="${m.nowShowing}">
+									        Showing
+									        <br />
+									</c:when>
+									<c:otherwise>
+									       Not Showing
+									</c:otherwise>
+								</c:choose></td>
+							<td align="center">${m.rate }</td>
+							<td align="center">
+								<c:choose>
+									<c:when test="${m.hotMovie}">
+									        Hot Movie
+									        <br />
+									</c:when>
+									<c:otherwise>
+									       Not
+									</c:otherwise>
+								</c:choose>
+							</td>
+							<td align="center">
+								<iframe height="200" width="300" src="${m.trailer }">
+									
+								</iframe>
+							</td>
+							<td align="center">
+								<a
 								href="${pageContext.request.contextPath }/admin/movie/edit/${m.id}"
-								class="btn btn-primary">Edit</a> <a
+								class="btn btn-primary">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+									stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
+									<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+									<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+									</svg>
+								</a> <a
 								href="${pageContext.request.contextPath }/admin/movie/delete/${m.id}"
-								class="btn btn-primary">Delete</a></td>
+								class="btn btn-primary">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+									stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete">
+										<path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+										<line x1="18" y1="9" x2="12" y2="15"></line>
+										<line x1="12" y1="9" x2="18" y2="15"></line>
+									</svg>
+								</a></td>
 						</tr>
 					</c:forEach>
 

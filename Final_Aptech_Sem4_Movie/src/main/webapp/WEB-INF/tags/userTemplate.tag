@@ -108,8 +108,9 @@ px
  25px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    border-radius: 20px;"><a href="${pageContext.request.contextPath }/account/register">Register</a></li>
-    						<li style="background-color: #dd003f;
+    border-radius: 20px;
+    margin-right:10px;"><a href="${pageContext.request.contextPath }/account/register">Register</a></li>
+    						<li style="background-color: #ffff66;
     color: #ffffff;
     padding: 11px
 px
@@ -119,7 +120,7 @@ px
     border-radius: 20px;">
 							<c:if test="${not empty pageContext.request.userPrincipal}">
 								<c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
-									<a href="${pageContext.request.contextPath }/account/login">CHECK</a>
+									<a href="${pageContext.request.contextPath }/admin/home">ADMIN</a>
 							    </c:if>
 							 </c:if> 
 						</li>

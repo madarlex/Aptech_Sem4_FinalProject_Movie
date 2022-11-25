@@ -13,5 +13,5 @@ import com.demo.models.Price;
 public interface PriceService {
 
 	public Price findByDescription(Date showDate); 
-	
+	public Price create (Price price);
 }

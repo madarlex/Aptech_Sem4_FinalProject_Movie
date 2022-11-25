@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "price", catalog = "aptechmovies")
 public class Price implements java.io.Serializable {
 
-	private Integer id;
+	private Long id;
 	private double price;
 	private String description;
 	private boolean status;
@@ -45,11 +45,11 @@ public class Price implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -60,7 +60,7 @@ public class PriceServiceImpl implements PriceService {
 	}
 
 	@Override
-	public Price findById(int id) {
+	public Price findById(long id) {
 		return priceRepository.findById(id);
 	}
 

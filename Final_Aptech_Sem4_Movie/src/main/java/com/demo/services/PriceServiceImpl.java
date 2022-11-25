@@ -46,6 +46,12 @@ public class PriceServiceImpl implements PriceService {
 		}
 		return priceRepository.findByDescription(shownDay);
 	}
+
+	@Override
+	public Price create(Price price) {
+		// TODO Auto-generated method stub
+		return priceRepository.save(price);
+	}
 	
 
 

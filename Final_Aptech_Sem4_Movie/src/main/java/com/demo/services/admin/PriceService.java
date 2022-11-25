@@ -20,7 +20,7 @@ public interface PriceService {
 	
 	public boolean create (Price price);
 	
-	public Price findById (int id);
+	public Price findById (long id);
 	
 	public boolean delete (int id);
 }

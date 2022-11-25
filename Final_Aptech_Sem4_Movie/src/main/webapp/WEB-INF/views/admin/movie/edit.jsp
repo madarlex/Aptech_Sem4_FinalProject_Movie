@@ -104,7 +104,7 @@
 												<i class="fas fa-clock"></i>
 											</div>
 										</div>
-										<s:input type="number" class="form-control timepicker" path="length"/>
+										<s:input type="number" class="form-control" path="length"/>
 									</div>
 								</div>
 							</div>
@@ -122,7 +122,7 @@
 								<label
 									class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
 								<div class="col-sm-12 col-md-7">	
-									<input class="btn btn-primary" type="submit" value="Create Movie ">
+									<input class="btn btn-primary" type="submit" value="Save Movie ">
 								</div>
 							</div>
 								
