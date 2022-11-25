@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demo.models.Hall;
 import com.demo.models.Price;
+import com.demo.models.addedPrice;
 import com.demo.services.admin.HallService;
 import com.demo.services.admin.PriceService;
 
@@ -27,6 +28,9 @@ public class PriceController {
 	
 	@Autowired
 	private PriceService priceService;
+	
+	@Autowired
+	private com.demo.services.PriceService priceService2;
 	
 	@RequestMapping(value = {"add"}, method = RequestMethod.GET)
 	public String add (ModelMap modelMap) {
@@ -56,15 +60,15 @@ public class PriceController {
 	}
 	
 	@RequestMapping(value = {"edit"}, method = RequestMethod.POST)
-	public String edit (@ModelAttribute("price") Price price) {
-		Price dbPrice = priceService.findById(price.getId());
-		dbPrice.setPrice(price.getPrice());
+	public String edit (@ModelAttribute("price") addedPrice price) {
+		Price dbPrice = priceService.findById(Long.valueOf(price.getId()));
+		dbPrice.setPrice(Double.parseDouble(price.getPrice()));
 		dbPrice.setDescription(price.getDescription());
 		try {
 			dbPrice.setStatus(true);
-			if (priceService.create(dbPrice)) {
-				return "redirect:/admin/price/prices";
-			}
+			priceService2.create(dbPrice);
+			return "redirect:/admin/price/prices";
+
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}

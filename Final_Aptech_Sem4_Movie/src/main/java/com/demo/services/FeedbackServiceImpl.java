@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.demo.models.Feedback;
-import com.demo.repositories.FeedBackRepository;
+import com.demo.repositories.FeedbackRepository;
 
 
 
@@ -26,7 +26,7 @@ import com.demo.repositories.FeedBackRepository;
 public class FeedbackServiceImpl implements FeedbackService {
 	
 	@Autowired
-	private FeedBackRepository feedBackRepository;
+	private FeedbackRepository feedBackRepository;
 
 	@Override
 	public Iterable<Feedback> findAllByMovie(int movie_id) {

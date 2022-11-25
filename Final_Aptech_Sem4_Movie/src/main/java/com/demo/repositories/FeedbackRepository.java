@@ -13,7 +13,7 @@ import com.demo.models.Feedback;
 
 
 @Repository
-public interface FeedBackRepository extends CrudRepository<Feedback, Integer>{
+public interface FeedbackRepository extends CrudRepository<Feedback, Integer>{
 	
 	@Query("from Feedback where status=1 and movie_id = :movie_id order by id desc")
 	public List<Feedback> findAllFeedbackByMovie(@Param("movie_id") int movie_id);

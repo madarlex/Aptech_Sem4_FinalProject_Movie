@@ -19,7 +19,7 @@ public interface PriceRepository extends PagingAndSortingRepository<Price, Integ
 	public Price findByDescription(@Param("day") String day);
 	
 	@Query("from Price where id = :id")
-	public Price findById(@Param("id") int id);
+	public Price findById(@Param("id") long id);
 
 }
 
