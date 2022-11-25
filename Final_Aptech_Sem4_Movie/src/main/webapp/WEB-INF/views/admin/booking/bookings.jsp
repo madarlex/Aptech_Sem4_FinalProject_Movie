@@ -42,8 +42,6 @@ ${msg }
 							</td>
 							<td>${b.seat.position }</td>
 							<td><a
-								href="${pageContext.request.contextPath }/admin/booking/edit/${b.id}"
-								class="btn btn-primary">Edit</a> <a
 								href="${pageContext.request.contextPath }/admin/booking/delete/${b.id}"
 								class="btn btn-primary">Delete</a></td>
 						</tr>

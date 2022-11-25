@@ -25,6 +25,9 @@ public class MovieshowtimeServiceImpl implements MovieshowtimeService {
 	@Autowired
 	private MovieshowtimeRepository movieshowtimeRepository;
 	
+	@Autowired
+	private com.demo.repositories.MovieshowtimeRepository movieshowtimeRepository2;
+	
 	@Override
 	public Iterable<Movieshowtime> findAll() {
 		return movieshowtimeRepository.findAll();
@@ -44,7 +47,7 @@ public class MovieshowtimeServiceImpl implements MovieshowtimeService {
 
 	@Override
 	public boolean create(Movieshowtime movieshowtime) {
-		if (movieshowtimeRepository.save(movieshowtime) != null) {
+		if (movieshowtimeRepository2.save(movieshowtime) != null) {
 			return true;
 		}
 		return false;

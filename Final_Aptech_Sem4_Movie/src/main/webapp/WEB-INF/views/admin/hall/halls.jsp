@@ -31,7 +31,7 @@ ${msg }
 							<td>${hall.name }</td>
 							<td>${hall.seatNumbers}</td>
 							<td>${hall.status == true ? "Open" : "Close"}</td>
-							<td><a href="#" class="btn btn-primary">Detail</a> <a
+							<td><a
 								href="${pageContext.request.contextPath }/admin/hall/edit/${hall.id}"
 								class="btn btn-primary">Edit</a> <a
 								href="${pageContext.request.contextPath }/admin/hall/delete/${hall.id}"

@@ -104,7 +104,7 @@ button {
 						</div>
 						<div class="card-body">
 							<!-- choose hall -->
-							<form action="${pageContext.request.contextPath }/admin/schedule/add" method="post">
+							<form action="${pageContext.request.contextPath }/admin/schedule/edit" method="post">
 								<div class="form-group row mb-4">
 									<label
 										class="col-form-label text-md-right col-12 col-md-2 col-lg-2">Hall</label>

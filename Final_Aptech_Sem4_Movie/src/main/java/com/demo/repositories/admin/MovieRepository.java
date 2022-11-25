@@ -21,7 +21,8 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie, Long>
 	@Query("from Movie where start_date <= :start and end_date >= :end")
 	public List<Movie> findMovieByTime(@Param("start") Date start, @Param("end") Date end);
 	
-	
+	@Query("from Movie where now_showing = true")
+	public List<Movie> findMovieByNowShowing();
 	
 	@Query("from Movie where end_date >= :today")
 	public List<Movie> findMovieByTimeFromToday(@Param("today") Date today);

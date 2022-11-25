@@ -60,7 +60,7 @@ public class ScheduleController {
 	@RequestMapping(value = { "", "index" }, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("p", "../schedule/index.jsp");
-		modelMap.put("movieList", movieService.findMovieByTimeFromNow(new Date()));
+		modelMap.put("movieList", movieService.findMovieByNowShowing());
 		modelMap.put("hallList", hallService.findAll());
 		return "admin/layouts/index";
 	}
@@ -68,7 +68,7 @@ public class ScheduleController {
 	@RequestMapping(value = { "edit/{id}" }, method = RequestMethod.GET)
 	public String edit(ModelMap modelMap, @PathVariable("id") int id) {
 		Movieshowtime showtime = movieshowtimeService.findById(id);
-		modelMap.put("movieList", movieService.findMovieByTimeFromNow(new Date()));
+		modelMap.put("movieList", movieService.findMovieByNowShowing());
 		modelMap.put("hallList", hallService.findAll());
 		modelMap.put("showtime", showtime);
 		System.out.println(showtime.getShowDate().toString() + "T" + showtime.getShowTime().toString());
@@ -83,43 +83,62 @@ public class ScheduleController {
 	public String edit(ModelMap modelMap, @RequestParam("hall") int hallId, @RequestParam("movie") int movieId,
 			@RequestParam("showTime") String showTime, @RequestParam("id") String id,
 			RedirectAttributes redirectAttributes) {
-		String url = "redirect:/admin/schedule/index";
-		Movie movie = null;
-		Hall hall = null;
-		String showDateMsg = "";
-		boolean foundError = false;
-		String[] splitDateTime = showTime.split("T");
-		Date date = parseDate(splitDateTime[0], 1, null);
-		Date time = parseDate(splitDateTime[1], 2, null);
-		if (hallId != 0 && movieId != 0) {
-			hall = hallService.findById(hallId);
-			movie = movieService.findById(movieId);
-		}
-		if (date.after(movie.getEndDate())) {
-			foundError = true;
-			showDateMsg = "You cannot set show date after the end date of movie";
-			redirectAttributes.addFlashAttribute("showTimeMsg", showDateMsg);
-			redirectAttributes.addFlashAttribute("hallId", hallId);
-			redirectAttributes.addFlashAttribute("movieId", movieId);
-			redirectAttributes.addFlashAttribute("datetime", showTime);
-			System.out.println("false");
-		}
-		if (foundError == false) {
-			if (id != null) {
-				Movieshowtime movieshowtime = new Movieshowtime();
-				movieshowtime.setId(Integer.parseInt(id));
+		try {
+			Movie movie = null;
+			Hall hall = null;
+			String showDateMsg = "";
+			boolean foundError = false;
+			String[] splitDateTime = showTime.split("T");
+			System.out.println("showtime: " + showTime);
+			Date date = parseDate(showTime, 0, "yyyy-MM-dd'T'HH:mm");
+			
+			Date endTime = new Date();
+			String strDate = "";
+			if (hallId != 0 && movieId != 0) {
+				hall = hallService.findById(hallId);
+				movie = movieService.findById(movieId);
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(date);
+				int seconds = movie.getLength() * 60;
+				calendar.add(Calendar.SECOND, seconds);
+				endTime = calendar.getTime();
+				DateFormat dateFormat = new SimpleDateFormat("HH:mm");  
+				strDate = dateFormat.format(date);  
+			}
+			if (date.after(movie.getEndDate())) {
+				foundError = true;
+				showDateMsg = "You cannot set show date after the end date of movie";
+				redirectAttributes.addFlashAttribute("showTimeMsg", showDateMsg);
+				redirectAttributes.addFlashAttribute("hallId", hallId);
+				redirectAttributes.addFlashAttribute("movieId", movieId);
+				redirectAttributes.addFlashAttribute("datetime", showTime);
+				redirectAttributes.addFlashAttribute("id", id);
+			}
+			if (movieshowtimeService.checkValidateHallAndShowTime(hallId, splitDateTime[0], splitDateTime[1], strDate) > 0) {
+				foundError = true;
+				showDateMsg = "This hall show the other movie at this time";
+				redirectAttributes.addFlashAttribute("showTimeMsg", showDateMsg);
+				redirectAttributes.addFlashAttribute("hallId", hallId);
+				redirectAttributes.addFlashAttribute("movieId", movieId);
+				redirectAttributes.addFlashAttribute("datetime", showTime);
+				redirectAttributes.addFlashAttribute("id", id);
+			}
+			if (foundError == false) {
+				Movieshowtime movieshowtime = movieshowtimeService.findById(Integer.parseInt(id));
 				movieshowtime.setHall(hall);
 				movieshowtime.setMovie(movie);
 				movieshowtime.setShowDate(date);
-				movieshowtime.setShowTime(time);
-				movieshowtime.setStatus(true);
+				movieshowtime.setShowTime(date);
+				movieshowtime.setEndTime(endTime);
 				if (movieshowtimeService.create(movieshowtime)) {
-					url = "redirect:/admin/schedule/schedules";
+					return "redirect:/admin/schedule/schedules";
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
-		return url;
+		return "redirect:/admin/schedule/edit/"+id;
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
@@ -131,11 +150,8 @@ public class ScheduleController {
 			String showDateMsg = "";
 			boolean foundError = false;
 			String[] splitDateTime = showTime.split("T");
-//		Date date = parseDate(splitDateTime[0], 1, null);
-//		Date time = parseDate(splitDateTime[1], 3, null);
 			System.out.println("showtime: " + showTime);
 			Date date = parseDate(showTime, 0, "yyyy-MM-dd'T'HH:mm");
-			// Date date = new Date(showTime);
 			Date endTime = new Date();
 			String strDate = "";
 			if (hallId != 0 && movieId != 0) {
