@@ -104,7 +104,7 @@ button {
 						</div>
 						<div class="card-body">
 							<!-- choose hall -->
-							<form action="${pageContext.request.contextPath }/admin/schedule/add" method="post">
+							<form action="${pageContext.request.contextPath }/admin/schedule/edit" method="post">
 								<div class="form-group row mb-4">
 									<label
 										class="col-form-label text-md-right col-12 col-md-2 col-lg-2">Hall</label>
@@ -157,7 +157,7 @@ button {
 									<div class="col-sm-12 col-md-9"
 										style="display: flex; align-items: center">
 										<input class="btn btn-primary" id="submit" style="margin: 0"
-											type="submit" value="Create">
+											type="submit" value="Edit">
 									</div>
 								</div>
 							</form>

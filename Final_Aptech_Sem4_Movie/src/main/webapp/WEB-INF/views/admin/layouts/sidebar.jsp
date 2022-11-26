@@ -5,7 +5,7 @@
 <body>
 	<aside id="sidebar-wrapper">
 		<div class="sidebar-brand">
-			<a href="${pageContext.request.contextPath }/home/index"> <img
+			<a href="${pageContext.request.contextPath }/admin/home/index"> <img
 				alt="image"
 				src="${pageContext.request.contextPath }/resources/admin/img/logo.png"
 				class="header-logo" /> <span class="logo-name">Otika</span>
