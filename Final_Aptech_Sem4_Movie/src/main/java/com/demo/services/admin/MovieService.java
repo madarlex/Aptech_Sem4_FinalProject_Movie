@@ -25,4 +25,6 @@ public interface MovieService {
 	public Iterable<Movie> showAll();
 
 	public Page<Movie> findAll(int numberPage);
+	
+	public List<Movie> findMovieByNowShowing();
 }

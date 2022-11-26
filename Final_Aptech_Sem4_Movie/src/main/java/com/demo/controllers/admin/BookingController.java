@@ -97,7 +97,7 @@ public class BookingController {
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(ModelMap modelMap) {
 		modelMap.put("p", "../booking/index.jsp");
-		modelMap.put("movies", movieService.findMovieByTimeFromNow(new Date()));
+		modelMap.put("movies", movieService.findMovieByNowShowing());
 		modelMap.put("accounts", accountService.findAll());
 		return "admin/layouts/index";
 	}
@@ -109,7 +109,7 @@ public class BookingController {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date choosenDate = dateFormat.parse(date);
 			attributes.addFlashAttribute("showtimes", movieshowtimeService.findShowtimemovieByMovieIdAndByDate(id, choosenDate));
-			attributes.addFlashAttribute("movies", movieService.findMovieByTimeFromNow(new Date()));
+			attributes.addFlashAttribute("movies", movieService.findMovieByNowShowing());
 			attributes.addFlashAttribute("showDate", date);
 			attributes.addFlashAttribute("choosenMovie", movieId);
 			return "redirect:/admin/booking/add";

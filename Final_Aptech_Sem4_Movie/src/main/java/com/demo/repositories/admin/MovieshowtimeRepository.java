@@ -28,7 +28,7 @@ public interface MovieshowtimeRepository extends PagingAndSortingRepository<Movi
 	@Query("from Movieshowtime where id = :id")
 	public Movieshowtime findById(@Param("id") int id);
 	
-	@Query(value="Select * from Movieshowtime as m where m.movie_id = :movieId and m.show_date = :date order by m.show_time desc",nativeQuery = true)
+	@Query(value="Select * from Movieshowtime as m where m.movie_id = :movieId and m.show_date = :date and status = 1 order by m.show_time desc",nativeQuery = true)
 	public List<Movieshowtime> findShowtimemovieByMovieIdAndByDate(@Param("movieId") int movieId, @Param("date") Date date);
 	
 	@Query(value = "SELECT count(*) as check_available from Movieshowtime WHERE hall_id = :hall_id and show_date = :show_date and (show_time >= :show_time or end_time >= :end_time) and status != 0", nativeQuery = true)

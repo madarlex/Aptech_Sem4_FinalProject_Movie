@@ -66,4 +66,9 @@ public class MovieServiceImpl implements MovieService {
 		return movieRepository.findAll(pageable);
 	}
 
+	@Override
+	public List<Movie> findMovieByNowShowing() {
+		return movieRepository.findMovieByNowShowing();
+	}
+
 }
