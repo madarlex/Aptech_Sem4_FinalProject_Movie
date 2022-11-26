@@ -30,7 +30,7 @@ public class SecurityConfiguration {
 			.antMatchers("/account/history").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
 			.antMatchers("/account/edit").hasAnyAuthority("ROLE_USER")
 			.antMatchers("/about/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-//			.antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+			.antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
 //			.antMatchers("/admin/movie/**").hasAnyAuthority("ROLE_ADMIN")
 //			.antMatchers("/admin/booking/movies").hasAnyAuthority("ROLE_ADMIN")
 			.and()

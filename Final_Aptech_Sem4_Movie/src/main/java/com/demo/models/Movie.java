@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.OrderBy;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -39,6 +40,8 @@ public class Movie implements java.io.Serializable {
 	private Date endDate;
 	private boolean status;
 	private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
+	
+	@OrderBy(clause = "movieshowtimes.showTime")
 	private Set<Movieshowtime> movieshowtimes = new HashSet<Movieshowtime>(0);
 
 	public Movie() {

@@ -47,13 +47,13 @@
 				<div class="flex-wrap-movielist mv-grid-fw">
 					<c:forEach var="movie" items="${movies }"  varStatus="i">
 						<div class="movie-item-style-2 movie-item-style-1">
-							<img src="${pageContext.request.contextPath }${movie.picture}" alt="">
+							<img src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="">
 							<div class="hvr-inner">
 	            				<a  href="${pageContext.request.contextPath }/movie/detail/${movie.id}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 	            			</div>
 							<div class="mv-item-infor">
 								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
-								<p class="rate"><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
+								<p class="rate"><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
 							</div>
 						</div>			
 					</c:forEach>

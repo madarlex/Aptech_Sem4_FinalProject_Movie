@@ -40,7 +40,7 @@ public class HomeController {
 	public String home(ModelMap modelMap, Principal principal, HttpSession session) {
 
 
-		
+		modelMap.put("nowShowingMovies", movieService.findAllNowShowingMovie());
 		modelMap.put("movies", movieService.findAll());
 		modelMap.put("hotMovies", movieService.findAllHotMovie());
 		modelMap.put("commingSoonMovies", movieService.findAllComingSoonMovie());

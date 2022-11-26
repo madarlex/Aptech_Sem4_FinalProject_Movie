@@ -15,6 +15,7 @@ import com.demo.models.Movie;
 
 public interface MovieService {
 	public Iterable<Movie> findAll();
+	public List<Movie> findAllNowShowingMovie();
 	public List<Movie> findAllActiveMovie();
 	public List<Movie> findAllHotMovie();
 	public List<Movie> findAllComingSoonMovie();

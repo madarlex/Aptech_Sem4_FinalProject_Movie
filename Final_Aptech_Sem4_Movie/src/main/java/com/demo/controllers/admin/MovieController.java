@@ -148,7 +148,8 @@ public class MovieController implements ServletContextAware {
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete (ModelMap modelMap,@PathVariable("id")int id) {
 		Movie m = movieService.findById(id);
-		movieService.delete(m);
+		m.setNowShowing(false);
+		movieService.create(m);
 		modelMap.put("movie", new Movie());
 		return "redirect:/admin/movie/movies";
 	}
@@ -162,9 +163,11 @@ public class MovieController implements ServletContextAware {
 	
 	private String UploadFile(MultipartFile file) {
 		try {
-			String filename= generateFileName(file.getOriginalFilename());
+			String filename= file.getOriginalFilename();
 			byte[] bytes= file.getBytes();
-			Path path = Paths.get(this._servletContext.getRealPath("/assets/uploads/images/" + filename));
+			Path path = Paths.get("src","main","resources", "static", "user", "images", "uploads", filename);
+			
+//			Path path = Paths.get(this._servletContext.getRealPath("/assets/uploads/images/" + filename));
 			Files.write(path, bytes);
 			return filename;
 		} catch (Exception e) {

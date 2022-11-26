@@ -47,10 +47,13 @@ public class PriceController {
 	}
 	
 	@RequestMapping(value = {"add"}, method = RequestMethod.POST)
-	public String add (@ModelAttribute("price") Price price) {
+	public String add (@ModelAttribute("price") addedPrice price) {
+		Price dbPrice = new Price();
+		dbPrice.setPrice(Double.parseDouble(price.getPrice()));
+		dbPrice.setDescription(price.getDescription());
 		try {
-			price.setStatus(true);
-			if (priceService.create(price)) {
+			dbPrice.setStatus(true);
+			if (priceService.create(dbPrice)) {
 				return "redirect:/admin/price/prices";
 			}
 		} catch(Exception ex) {
