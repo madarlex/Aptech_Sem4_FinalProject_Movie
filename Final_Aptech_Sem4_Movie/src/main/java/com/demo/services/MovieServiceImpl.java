@@ -82,5 +82,11 @@ public class MovieServiceImpl implements MovieService {
 		return movieRepository.findMovieByKeyword(keyword);
 	}
 
+	@Override
+	public List<Movie> findAllNowShowingMovie() {
+		// TODO Auto-generated method stub
+		return movieRepository.findAllNowShowingMovie();
+	}
+
 
 }

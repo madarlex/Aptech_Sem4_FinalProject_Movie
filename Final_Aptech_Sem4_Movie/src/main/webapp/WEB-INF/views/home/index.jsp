@@ -28,11 +28,11 @@
 					<c:forEach var="movie" items="${movies }"  varStatus="i">
 							<div class="movie-item">
 							<div class="mv-img">
-								<a href="${pageContext.request.contextPath }/movie/detail/${movie.id}"><img  src="${pageContext.request.contextPath }${movie.picture }" alt="" width="285" height="437"></a>
+								<a href="${pageContext.request.contextPath }/movie/detail/${movie.id}"><img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="" width="285" height="437"></a>
 							</div>
 							<div class="title-in">
 								<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name}</a></h6>
-								<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
+								<p><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
 							</div>
 						</div>
 					</c:forEach>
@@ -49,19 +49,21 @@
 					</div>
 					<div class="tabs">
 						<ul class="tab-links">
-							<li class="active"><a href="#tab1">#Hot</a></li>
+							<li class="active"><a href="#tab4">#Now Showing</a></li>
+							<li><a href="#tab1">#Hot</a></li>
 							<li><a href="#tab2"> #Coming soon</a></li>
 							<li><a href="#tab3"> #Top rated </a></li>
 						</ul>
 						<div class="tab-content">
-							<div id="tab1" class="tab active">
+						
+						<div id="tab4" class="tab active">
 								<div class="row">
 									<div class="slick-multiItem">
-									<c:forEach var="movie" items="${hotMovies }"  varStatus="i">
+									<c:forEach var="movie" items="${nowShowingMovies }"  varStatus="i">
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
-													<img  src="${pageContext.request.contextPath }${movie.picture}" alt="" width="185"
+													<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="" width="185"
 														height="284">
 												</div>
 												<div class="hvr-inner">
@@ -70,7 +72,31 @@
 												</div>
 												<div class="title-in">
 													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
-													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
+													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+									</div>
+								</div>
+							</div>
+							<div id="tab1" class="tab">
+								<div class="row">
+									<div class="slick-multiItem">
+									<c:forEach var="movie" items="${hotMovies }"  varStatus="i">
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+													<a href="${pageContext.request.contextPath }/movie/detail/${movie.id}"> Read more <i
+															class="ion-android-arrow-dropright"></i> </a>
+												</div>
+												<div class="title-in">
+													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
+													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
 												</div>
 											</div>
 										</div>
@@ -85,7 +111,7 @@
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
-													<img  src="${pageContext.request.contextPath }${movie.picture}" alt="" width="185"
+													<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="" width="185"
 														height="284">
 												</div>
 												<div class="hvr-inner">
@@ -94,7 +120,7 @@
 												</div>
 												<div class="title-in">
 													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
-													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
+													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
 												</div>
 											</div>
 										</div>
@@ -109,7 +135,7 @@
 										<div class="slide-it">
 											<div class="movie-item">
 												<div class="mv-img">
-													<img  src="${pageContext.request.contextPath }${movie.picture}" alt="" width="185"
+													<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="" width="185"
 														height="284">
 												</div>
 												<div class="hvr-inner">
@@ -118,7 +144,7 @@
 												</div>
 												<div class="title-in">
 													<h6><a href="${pageContext.request.contextPath }/movie/detail/${movie.id}">${movie.name }</a></h6>
-													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /10</p>
+													<p><i class="ion-android-star"></i><span>${movie.rate }</span> /5</p>
 												</div>
 											</div>
 										</div>
@@ -157,7 +183,7 @@
 						<c:forEach var="movie" items="${hotMovies }"  varStatus="i">
 						<div class="item">
 								<div class="trailer-img">
-									<img  src="${pageContext.request.contextPath }${movie.picture}" alt="photo by Barn Images" width="4096"
+									<img  src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }" alt="photo by Barn Images" width="4096"
 										height="2737">
 								</div>
 								<div class="trailer-infor">

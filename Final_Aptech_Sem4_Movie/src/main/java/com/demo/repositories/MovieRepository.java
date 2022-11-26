@@ -16,6 +16,9 @@ import com.demo.models.Movie;
 @Repository
 public interface MovieRepository extends PagingAndSortingRepository<Movie, Integer>{
 	
+	@Query("from Movie where nowShowing=1")
+	public List<Movie> findAllNowShowingMovie();
+	
 	@Query("from Movie where status=1")
 	public List<Movie> findAllActiveMovie();
 	

@@ -139,7 +139,7 @@ public class ScheduleController {
 			e.printStackTrace();
 		}
 
-		return "redirect:/admin/schedule/eidt/" + id;
+		return "redirect:/admin/schedule/edit/" + id;
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)

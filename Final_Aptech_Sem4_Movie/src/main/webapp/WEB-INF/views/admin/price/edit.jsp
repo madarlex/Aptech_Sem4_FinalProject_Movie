@@ -86,7 +86,7 @@ td {
 										class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Price</label>
 									<div class="col-sm-12 col-md-7">
 										<s:input type="number" class="form-control" path="price" />
-										<s:input type="number" path="id"/>
+										<s:input type="hidden" path="id"/>
 									</div>
 								</div>
 

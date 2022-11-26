@@ -80,6 +80,7 @@ public class AccountController {
 		account.setPassword(hash);
 		Usertype usertype = userTypeService.find(2);
 		account.setUsertype(usertype);
+		account.setStatus(true);
 		accountService.save(account);
 		Map<String,Object> model = new HashMap<>();
 		model.put("full_name", account.getFullName());
@@ -112,6 +113,7 @@ public class AccountController {
 			account.setPassword(hash);
 			Usertype usertype = userTypeService.find(2);
 			account.setUsertype(usertype);
+			account.setStatus(true);
 			accountService.save(account);
 			Map<String,Object> model = new HashMap<>();
 
@@ -160,6 +162,7 @@ public class AccountController {
 					account.setPassword(hash);
 					Usertype usertype = userTypeService.find(2);
 					account.setUsertype(usertype);
+					account.setStatus(true);
 					accountService.save(account);
 					Map<String,Object> model = new HashMap<>();
 					model.put("full_name", account.getFullName());

@@ -21,7 +21,7 @@
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
-					<img src="${pageContext.request.contextPath }${movie.picture }"
+					<img src="${pageContext.request.contextPath }/resources/user/images/uploads/${movie.picture }"
 									alt="">
 					<div class="movie-btn">	
 						<div class="btn-transform transform-vertical red">
@@ -45,7 +45,7 @@
 						<div class="rate">
 							<i class="ion-android-star"></i>
 							<p>
-											<span>${movie.rate}</span> /10<br>
+											<span>${movie.rate}</span> /5<br>
 							</p>
 						</div>
 						
