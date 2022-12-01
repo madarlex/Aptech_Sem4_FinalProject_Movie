@@ -23,4 +23,8 @@ public interface AccountService {
 	public Page<Account> findAll(int numberPage);
 	
 	public Iterable<Account> findAll();
+	
+	public int countAccount();
+	
+	public List<Account> findByKeyword(String keyword);
 }

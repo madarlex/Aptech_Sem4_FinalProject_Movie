@@ -71,4 +71,14 @@ public class MovieServiceImpl implements MovieService {
 		return movieRepository.findMovieByNowShowing();
 	}
 
+	@Override
+	public int countMovieNowShowing() {
+		return movieRepository.countMovieNowShowing();
+	}
+	
+	@Override
+	public List<Movie> findByKeyword(String keyword) {
+		return movieRepository.findByKeyWord(keyword);
+	}
+
 }

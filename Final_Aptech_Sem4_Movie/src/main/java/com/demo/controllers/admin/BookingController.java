@@ -119,6 +119,50 @@ public class BookingController {
 		return "admin/layouts/index";
 	}
 	
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public String search (ModelMap modelMap, @RequestParam("date")String date,HttpSession session) {
+		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
+		List<Ticket> schedules = new ArrayList<Ticket>();
+
+		List<Movieshowtime> mvs = movieshowtimeService.findShowtimeByDate(date);
+		for(Movieshowtime m :mvs) {
+			List<Ticket> tickets = ticketService.findByMovieshowtime(m.getId());
+			for(Ticket t :tickets) {
+				schedules.add(t);
+			}
+		}
+
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("bookings", schedules);
+		modelMap.put("date", date);
+		modelMap.put("p", "../booking/bookings.jsp");
+		return "admin/layouts/index";
+	}
+	
+	@RequestMapping(value = "searchAccount", method = RequestMethod.POST)
+	public String searchAccount (ModelMap modelMap, @RequestParam("accountId") String accountId,HttpSession session) {
+		List<Ticket> schedules = ticketService.findByAccount(accountId);
+
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("bookings", schedules);
+		modelMap.put("accounts", accountService.findAll());
+		modelMap.put("accountId", accountId);
+		modelMap.put("p", "../booking/bookings.jsp");
+		return "admin/layouts/index";
+	}
+	
 	@RequestMapping(value = "seats", method = RequestMethod.POST)
 	public String seats(ModelMap modelMap, @RequestParam("movieId") String movieId, @RequestParam("date") String date, @RequestParam("showtime") String showtimeId, RedirectAttributes attributes) {
 		try {
@@ -129,12 +173,36 @@ public class BookingController {
 			List<AdminAvailableSeats> availableSeats = (List<AdminAvailableSeats>) seatService.getAdminAvailableSeats(chosenMovieShowTime.getHall().getId(), chosenMovieShowTime.getId());
 			
 			if (showtimeId != null) {
-				System.out.println("showtime: " + showtimeId);
+				System.out.println("showtime: " + date);
 			}
 			attributes.addFlashAttribute("showtimes", movieshowtimeService.findShowtimemovieByMovieIdAndByDate(id, choosenDate));
 			attributes.addFlashAttribute("movies", movieService.findMovieByTimeFromNow(new Date()));
 			attributes.addFlashAttribute("showDate", date);
 			attributes.addFlashAttribute("choosenMovie", movieId);
+			attributes.addFlashAttribute("choosenShowtime", chosenMovieShowTime);
+			attributes.addFlashAttribute("availableSeats", availableSeats);
+			return "redirect:/admin/booking/add";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "admin/layouts/index";
+	}
+	
+	@RequestMapping(value = "getSeats", method = RequestMethod.POST)
+	public String getSeats(ModelMap modelMap, @RequestParam("showtimeId") String showtimeId, RedirectAttributes attributes) {
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Movieshowtime chosenMovieShowTime = movieshowtimeService.findById(Integer.parseInt(showtimeId));
+			Date choosenDate = dateFormat.parse(chosenMovieShowTime.getShowDate().toString());
+			List<AdminAvailableSeats> availableSeats = (List<AdminAvailableSeats>) seatService.getAdminAvailableSeats(chosenMovieShowTime.getHall().getId(), chosenMovieShowTime.getId());
+			
+			if (showtimeId != null) {
+				System.out.println("showtime: " + showtimeId);
+			}
+			attributes.addFlashAttribute("showtimes", movieshowtimeService.findShowtimemovieByMovieIdAndByDate(chosenMovieShowTime.getMovie().getId(), choosenDate));
+			attributes.addFlashAttribute("movies", movieService.findMovieByTimeFromNow(new Date()));
+			attributes.addFlashAttribute("showDate", dateFormat.format(choosenDate));
+			attributes.addFlashAttribute("choosenMovie", chosenMovieShowTime.getMovie().getId());
 			attributes.addFlashAttribute("choosenShowtime", chosenMovieShowTime);
 			attributes.addFlashAttribute("availableSeats", availableSeats);
 			return "redirect:/admin/booking/add";
@@ -197,6 +265,7 @@ public class BookingController {
 	public String bookings (ModelMap modelMap,HttpSession session) {
 		modelMap.put("preCheck", "");
 		modelMap.put("nextCheck", "");
+		modelMap.put("accounts", accountService.findAll());
 		return listByPage(modelMap, 1,session);
 	}
 	
@@ -223,6 +292,7 @@ public class BookingController {
 		session.setAttribute("currentPage", currentPage);
 		modelMap.put("currentPage", currentPage);
 		modelMap.put("bookings", schedules);
+		modelMap.put("accounts", accountService.findAll());
 		modelMap.put("p", "../booking/bookings.jsp");
 		return "admin/layouts/index";
 	}

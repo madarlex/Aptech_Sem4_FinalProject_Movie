@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -241,6 +242,46 @@ public class ScheduleController {
 		}
 		// modelMap.put("movie", new Movie());
 		return "redirect:/admin/schedule/schedules";
+	}
+	
+	@RequestMapping(value = "searchmovie", method = RequestMethod.POST)
+	public String searchmovie (ModelMap modelMap, @RequestParam("keyword")String keyword,HttpSession session) {
+		List<Movieshowtime> schedules = movieshowtimeService.findByKeyword(keyword);
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("schedules", schedules);
+		modelMap.put("p", "../schedule/schedules.jsp");
+		return "admin/layouts/index";
+	}
+	
+	@RequestMapping(value = "searchdate", method = RequestMethod.POST)
+	public String searchdate (ModelMap modelMap, @RequestParam("date") String date,HttpSession session) {
+		List<Movieshowtime> schedules = new ArrayList<Movieshowtime>();
+		try {
+			SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
+			schedules = movieshowtimeService.findShowtimeByDate(date);
+
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			schedules=null;
+		}
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("schedules", schedules);
+		modelMap.put("date", date);
+		modelMap.put("p", "../schedule/schedules.jsp");
+		return "admin/layouts/index";
 	}
 
 	public static Date parseDate(String date, int type, String pattern) {

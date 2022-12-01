@@ -11,9 +11,44 @@
 </head>
 ${msg }
 <body>
+
 	<div class="card">
 		<div class="card-header">
 			<h4>Schedules</h4>
+			<div class="card-header-form">
+				<div class="row">
+					<form
+						action="${pageContext.request.contextPath }/admin/schedule/searchmovie"
+						method="post">
+						<div class="input-group">
+							<input type="text" class="form-control" name="keyword"
+								placeholder="Search" value="${keyword }">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<form
+						action="${pageContext.request.contextPath }/admin/schedule/searchdate"
+						method="post" style="margin-left: 10px;">
+						<div class="input-group">
+							<input type="date" class="form-control daterange-cus" name="date"
+								value="${date }">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<a href="${pageContext.request.contextPath }/admin/schedule/schedules"
+						style="margin-left: 10px;"><button class="btn btn-primary">View
+							All</button></a>
+				</div>
+			</div>
+
 		</div>
 		<div class="card-body p-0">
 			<div class="table-responsive">

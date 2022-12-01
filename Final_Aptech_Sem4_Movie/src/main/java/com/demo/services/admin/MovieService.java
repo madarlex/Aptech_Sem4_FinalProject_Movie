@@ -27,4 +27,8 @@ public interface MovieService {
 	public Page<Movie> findAll(int numberPage);
 	
 	public List<Movie> findMovieByNowShowing();
+	
+	public int countMovieNowShowing();
+	
+	public List<Movie> findByKeyword(String keyword); 
 }

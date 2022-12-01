@@ -26,6 +26,12 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie, Long>
 	
 	@Query("from Movie where end_date >= :today")
 	public List<Movie> findMovieByTimeFromToday(@Param("today") Date today);
+	
+	@Query(value = "SELECT COUNT(*) from movie where now_showing = 1", nativeQuery = true)
+	public int countMovieNowShowing();
+	
+	@Query("from Movie where name like %:keyword%")
+	public List<Movie> findByKeyWord(@Param("keyword") String keyword);
 }
 
 // database ---> repositories ---> service ---> controller

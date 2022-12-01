@@ -44,6 +44,22 @@ public class MovieController implements ServletContextAware {
 		return "admin/layouts/index";
 	}
 	
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public String search (ModelMap modelMap,@RequestParam("keyword")String keyword,HttpSession session) {
+		List<Movie> movies = movieService.findByKeyword(keyword);
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("movies", movies);
+		modelMap.put("keyword", keyword);
+		modelMap.put("p", "../movie/movies.jsp");
+		return "admin/layouts/index";
+		
+	}
+	
 	@RequestMapping(value = "movies", method = RequestMethod.GET)
 	public String movies (ModelMap modelMap,HttpSession session) {
 		modelMap.put("preCheck", "");

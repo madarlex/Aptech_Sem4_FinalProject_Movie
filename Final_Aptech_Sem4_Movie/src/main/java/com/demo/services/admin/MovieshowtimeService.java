@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.demo.models.Hall;
 import com.demo.models.Movie;
+import com.demo.models.MovieSchedule;
 import com.demo.models.Movieshowtime;
 
 
@@ -32,6 +33,16 @@ public interface MovieshowtimeService {
 	public void delete(Movieshowtime showtime);
 	
 	public int checkValidateHallAndShowTime(int hallId, String showDate, String showTime, String endTime);
+	
+	public List<String> getMovieNowShowingHasSchedule(); 
+	
+	public List<MovieSchedule> getScheduleOfMovieNowShowing();
+	
+	public List<Movieshowtime> findAllScheduleNowShowing();
+	
+	public List<Movieshowtime> findShowtimeByDate(String date);
+	
+	public List<Movieshowtime> findByKeyword(String keyword);
 //	
 //	public List<Movieshowtime> findShowtimeByDate(Date date);
 }

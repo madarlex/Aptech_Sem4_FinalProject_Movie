@@ -67,8 +67,7 @@
 	<script
 		src="${pageContext.request.contextPath }/resources/admin/js/app.min.js"></script>
 	<!-- JS Libraies -->
-	<script
-		src="${pageContext.request.contextPath }/resources/admin/bundles/apexcharts/apexcharts.min.js"></script>
+
 	<!-- Page Specific JS File -->
 	<script
 		src="${pageContext.request.contextPath }/resources/admin/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>

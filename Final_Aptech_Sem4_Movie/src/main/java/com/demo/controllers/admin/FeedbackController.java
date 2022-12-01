@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.models.Account;
 import com.demo.models.Feedback;
@@ -44,6 +45,21 @@ public class FeedbackController {
 		session.setAttribute("totalpage", totalPage);
 		session.setAttribute("currentPage", currentPage);
 		modelMap.put("currentPage", currentPage);
+		modelMap.put("feedbacks", feedbacks);
+		modelMap.put("p", "../feedback/index.jsp");
+		return "admin/layouts/index";
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public String search (ModelMap modelMap,@RequestParam("keyword")String keyword,HttpSession session) {
+		List<Feedback> feedbacks = feedbackService.findAllByMovieId(keyword);
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
 		modelMap.put("feedbacks", feedbacks);
 		modelMap.put("p", "../feedback/index.jsp");
 		return "admin/layouts/index";

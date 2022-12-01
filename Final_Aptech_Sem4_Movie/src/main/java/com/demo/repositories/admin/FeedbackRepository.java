@@ -18,7 +18,7 @@ import com.demo.models.Feedback;
 public interface FeedbackRepository extends PagingAndSortingRepository<Feedback, Integer>{
 
 	@Query(value = "select * from feedback where movie_id = :movieid",nativeQuery = true)
-	public Page<Feedback> findAllFeedbackByMoiveid(@Param("movieid")int movieid,Pageable pageable);
+	public List<Feedback> findAllFeedbackByMoiveid(@Param("movieid")int movieid);
 	
 	@Query("from Feedback where id = :id")
 	public Feedback findFeedbackById(@Param("id")int id);

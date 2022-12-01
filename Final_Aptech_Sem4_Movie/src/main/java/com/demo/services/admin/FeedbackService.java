@@ -18,7 +18,7 @@ public interface FeedbackService {
 
 	
 	public Page<Feedback> findAll(int numberPage);
-	public Page<Feedback> findAllByMovieId(int numberPage,int movieid);
 	public void delete(Feedback f);
 	public Feedback findById(int id);
+	public List<Feedback> findAllByMovieId(String keyword);
 }
