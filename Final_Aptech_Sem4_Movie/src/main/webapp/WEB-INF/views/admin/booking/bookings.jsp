@@ -14,6 +14,39 @@ ${msg }
 	<div class="card">
 		<div class="card-header">
 			<h4>Bookings</h4>
+			<div class="card-header-form">
+				<div class="row">
+					<form
+						action="${pageContext.request.contextPath }/admin/booking/searchAccount"
+						method="post" style="margin-right: 10px; margin-bot: 30px]">
+						<select class="form-control select2" name="accountId"  style="height: 100px; width: 150px; margin-bot: 20px; padding-bot: 20px">
+							<c:forEach var="account" items="${accounts }">
+								<option value="${account.id }"
+								${accountId != null ? (accountId == account.id ? "selected" : "") : "" }>${account.username }</option>
+							</c:forEach>
+						</select>
+						<input type="submit" class="btn btn-primary" value="Search"/>
+					</form>
+					<form
+						action="${pageContext.request.contextPath }/admin/booking/search"
+						method="post">
+						<div class="input-group">
+							<input type="date" class="form-control daterange-cus" name="date"
+								value="${date }">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="submit">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+
+					<a
+						href="${pageContext.request.contextPath }/admin/booking/bookings"
+						style="margin-left: 10px;"><button class="btn btn-primary">View
+							All</button></a>
+				</div>
+			</div>
 		</div>
 		<div class="card-body p-0">
 			<div class="table-responsive">
@@ -24,6 +57,7 @@ ${msg }
 						<th>Hall</th>
 						<th>Show Date</th>
 						<th>Show Time</th>
+						<th>Movie</th>
 						<th>Seat</th>
 						<th>Action</th>
 					</tr>
@@ -40,6 +74,7 @@ ${msg }
 								<!-- <div class="badge badge-success">Active</div> --> <fmt:formatDate
 									value="${b.movieshowtime.showTime }" pattern="HH:mm:ss" />
 							</td>
+							<td>${b.movieshowtime.movie.name }</td>
 							<td>${b.seat.position }</td>
 							<td><a
 								href="${pageContext.request.contextPath }/admin/booking/delete/${b.id}"

@@ -40,6 +40,22 @@ public class AccountController{
 		return "admin/layouts/index";
 	}
 	
+	@RequestMapping(value = {"search"}, method = RequestMethod.POST)
+	public String search (ModelMap modelMap,@RequestParam("keyword")String keyword,HttpSession session) {
+		List<Account> accounts = accountService.findByKeyword(keyword);
+		int totalPage = 1;
+		currPage = 1;
+		modelMap.put("preCheck", currPage == 1 ? "disabled" : " ");
+		modelMap.put("nextCheck", currPage == 1 ? "disabled" : " ");
+		session.setAttribute("totalpage", 1);
+		session.setAttribute("currentPage", 1);
+		modelMap.put("currentPage", 1);
+		modelMap.put("accounts", accounts);
+		modelMap.put("keyword", keyword);
+		modelMap.put("p", "../account/accounts.jsp");
+		return "admin/layouts/index";
+	}
+	
 	@RequestMapping(value = {"add"}, method = RequestMethod.GET)
 	public String add (ModelMap modelMap) {
 		modelMap.put("types", userTypeService.findAll());

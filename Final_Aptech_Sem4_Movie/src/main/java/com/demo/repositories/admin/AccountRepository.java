@@ -24,9 +24,14 @@ public interface AccountRepository extends PagingAndSortingRepository<Account, I
 	@Query(value = "select * from Account where status = 1",nativeQuery = true)
 	public Page<Account> findAllByStatus(Pageable pageable);
 	
-	@Query(value = "select * from Account where status = 1",nativeQuery = true)
+	@Query(value = "select * from Account where status = 1 and user_type = 2",nativeQuery = true)
 	public List<Account> findAll();
+	
+	@Query(value = "select count(*) from account where user_type = 1 ", nativeQuery = true)
+	public int countAccount();
  
+	@Query(value="from Account where fullName like %:keyword% and status = 1")
+	public List<Account> findByKeyword(@Param("keyword")String keyword);
 }
 
 // database ---> repositories ---> service ---> controller

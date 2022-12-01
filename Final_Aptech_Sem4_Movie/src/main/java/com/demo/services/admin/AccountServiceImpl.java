@@ -60,6 +60,16 @@ public class AccountServiceImpl implements AccountService {
 		return accountRepository.findAll();
 	}
 
+	@Override
+	public int countAccount() {
+		return accountRepository.countAccount();
+	}
+	
+	@Override
+	public List<Account> findByKeyword(String keyword) {
+		return accountRepository.findByKeyword(keyword);
+	}
+
 //	@Override
 //	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //		// TODO Auto-generated method stub
